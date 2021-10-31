@@ -27,11 +27,17 @@ npm install @material-ui/core @material-ui/icons   react-router-dom node-sass@4.
 
 - Go to your extensions icon (at the left side of your screen 'in vs code'), and install the following:
 
-<br>
-
 ### ES7 React/Redux/GraphQl/React-Native :thumbsup:
 
 > You will be using the extension every time you create a new component (practically from everything)
+
+<br>
+
+### 3. Install the styled components shortcuts
+
+- Go to your Vs code and install this:
+
+#### [vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components)
 
  <br>
  <hr>
@@ -91,6 +97,12 @@ npm i styled-components
 ```
 
 - **⚠️** Sometimes **styled components** can cause issues, as you cannot see if there is an error when you miss a **semicolon**
+
+<br>
+
+#### To avoid this, install the following: 🌵
+
+[vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components)
 
 <br>
 
