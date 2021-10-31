@@ -308,3 +308,366 @@ export default Slider;
 - The operands to the logical AND operator **don't need to have the same type, but they must have boolean, integral, or pointer type.** The operands are commonly relational or equality expressions.
 
 [<img src="/src/img/slider_props_arrows_ANDoperator.gif"/>]()
+
+<br>
+<br>
+
+#### Give the arrows a bit of opacity, then delete the background-color: coral; , as we are going to add the 'slides
+
+```javascript
+// props direction=
+// Arrows
+const Arrow = styled.div`
+  //  MORE DATA ...
+
+  //
+  // p
+  right: ${(props) => props.direction === "right" && "10px"};
+  //
+  margin: auto;
+  opacity: 0.5; //****** here
+  cursor: pointer;
+  //
+`;
+```
+
+<br>
+<br>
+
+# 🐒
+
+## Start by adding the wrapper that will include the images
+
+1. **import** the img:
+
+```javascript
+import img1 from "../img-store/oladimeji-odunsi-3.jpg";
+```
+
+<br>
+
+2. The **wrapper** will be situated between the arrows
+
+3. add the content **inside the ---slide ---**
+
+<br>
+
+```javascript
+// ----------------------- slide --------------
+const Wrapper = styled.div`
+  height: 100%; //important
+`;
+//
+//
+
+const Slide = styled.div`
+  display: flex;
+  align-items: center;
+`;
+//blocl img 1   ---------------
+const ImgContainer = styled.div`
+  flex: 1;
+`;
+const Image = styled.img``;
+
+//
+// block text 2  ---------------
+const InfoContainer = styled.div`
+  flex: 1;
+`;
+//
+// ----------------------- slide --------------
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+const Slider = () => {
+  return (
+    <Container>
+      <Arrow direction="left">
+        <ArrowLeftOutlined />
+      </Arrow>
+      // ----------------------- slide --------------
+      <Wrapper>
+        <Slide>
+          <ImgContainer>
+            <Image src={img1} />
+          </ImgContainer>
+          <InfoContainer></InfoContainer>
+        </Slide>
+      </Wrapper>
+      // ----------------------- slide --------------
+      <Arrow direction="right">
+        <ArrowRightOutlined />
+      </Arrow>
+    </Container>
+  );
+};
+```
+
+<br>
+<br>
+
+## At this point the image is too large, lets style it, add the following:
+
+- To contain the image you will add some width and height values:
+
+```javascript
+// ----------------------- slide --------------
+const Wrapper = styled.div`
+  height: 100%;
+`;
+//
+//
+
+const Slide = styled.div`
+  width: 100vw;
+  height: 100vh;
+  /*  */
+  display: flex;
+  align-items: center;
+`;
+//blocl img 1   ---------------
+const ImgContainer = styled.div`
+  height: 100%;
+  /*  */
+  flex: 1;
+  background-color: #f0f;
+`;
+const Image = styled.img`
+  height: 100%; //80% default
+`;
+
+//
+```
+
+<br>
+
+#### Result
+
+<br>
+
+[<img src="/src/img/slide_prcess_img1.jpg"/>]()
+
+<br>
+<br>
+
+## Now lets handle the text (it will also slide with the image)
+
+```javascript
+//
+//
+// block text 2  ---------------
+const InfoContainer = styled.div`
+  background-color: #ff0;
+  flex: 1;
+  padding: 50px;
+`;
+//
+const Title = styled.h1`
+  font-size: 70px;
+`;
+const Desc = styled.p`
+  margin: 50px 0px;
+  font-size: 1.2em;
+  font-weight: 500;
+  letter-spacing: 3px;
+`;
+const Button = styled.button`
+  padding: 10px;
+  font-size: 1.3em;
+  background-color: transparent;
+`;
+//
+//
+// ----------------------- slide --------------
+
+//
+//
+//
+<Wrapper>
+  <Slide>
+    <ImgContainer>
+      <Image src={img1} />
+    </ImgContainer>
+    {/* 
+          
+          
+          */}
+    <InfoContainer>
+      {/* 
+          
+          
+          */}
+      <InfoContainer>
+        <Title>SUMMER SALE</Title>
+        <Desc>
+          DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.
+        </Desc>
+        <Button>SHOW NOW</Button>
+      </InfoContainer>
+    </InfoContainer>
+  </Slide>
+</Wrapper>;
+```
+
+<br>
+<br>
+
+## I did some changes to the original styles, so this is what we have until now:
+
+
+
+[<img src="/src/img/slide_prcess_img2_before_animation.jpg"/>]()
+
+```javascript
+import React from "react";
+import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
+
+import styled from "styled-components";
+
+//
+import img1 from "../img-store/oladimeji-odunsi-1.jpg";
+//
+
+const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+
+  //
+  //
+  position: relative;
+`;
+//
+// Arrows
+const Arrow = styled.div`
+  width: 50px;
+  height: 50px;
+  background-color: #fff7f7;
+  //
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  //
+  // props direction=
+  left: ${(props) => props.direction === "left" && "10px"};
+  right: ${(props) => props.direction === "right" && "10px"};
+  //
+  margin: auto;
+  opacity: 0.5;
+  cursor: pointer;
+  //
+`;
+
+//
+// ----------------------- slide --------------
+const Wrapper = styled.div`
+  height: 100%;
+`;
+//
+//
+
+const Slide = styled.div`
+  width: 100vw;
+  height: 100vh;
+  /*  */
+  display: flex;
+  align-items: center;
+`;
+//blocl img 1   ---------------
+const ImgContainer = styled.div`
+  height: 100%;
+  /*  */
+  flex: 1;
+
+  /* background-color: #fde9d7; */
+`;
+const Image = styled.img`
+  /* height:80%;  */
+  width: 84%;
+  min-height: auto;
+  object-fit: cover;
+`;
+
+//
+// block text 2  ---------------
+const InfoContainer = styled.div`
+  /* background-color: #ff0; */
+  flex: 1;
+  padding: 50px 50px 50px 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+`;
+//
+const Title = styled.h1`
+  font-size: 70px;
+  font-family: "Poppins-medium";
+  color: #121212;
+`;
+const Desc = styled.p`
+  margin: 50px 10px 50px 0px;
+  font-size: 1.3em;
+  font-weight: 500;
+  font-family: "Poppins-light";
+  letter-spacing: 3px;
+`;
+const Button = styled.button`
+  padding: 10px;
+  font-size: 1.3em;
+  background-color: transparent;
+  border: 1px solid #000;
+`;
+//
+//
+//
+// ----------------------- slide --------------
+
+const Slider = () => {
+  return (
+    <Container>
+      <Arrow direction="left">
+        <ArrowLeftOutlined />
+      </Arrow>
+
+      <Wrapper>
+        <Slide>
+          <ImgContainer>
+            <Image src={img1} />
+          </ImgContainer>
+          {/* 
+          
+          
+          */}
+          <InfoContainer>
+            <Title>SUMMER SALE</Title>
+            <Desc>
+              DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.
+            </Desc>
+            <Button>SHOW NOW</Button>
+          </InfoContainer>
+        </Slide>
+      </Wrapper>
+
+      <Arrow direction="right">
+        <ArrowRightOutlined />
+      </Arrow>
+    </Container>
+  );
+};
+
+export default Slider;
+```

@@ -4,13 +4,14 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import styled from "styled-components";
 
 //
+import img1 from "../img-store/oladimeji-odunsi-2.jpg";
 //
 
 const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
-  background-color: coral;
+
   //
   //
   position: relative;
@@ -35,13 +36,77 @@ const Arrow = styled.div`
   right: ${(props) => props.direction === "right" && "10px"};
   //
   margin: auto;
- 
+  opacity: 0.5;
+  cursor: pointer;
   //
 `;
 
 //
+// ----------------------- slide --------------
+const Wrapper = styled.div`
+  height: 100%;
+`;
 //
 //
+
+const Slide = styled.div`
+  width: 100vw;
+  height: 100vh;
+  /*  */
+  display: flex;
+  align-items: center;
+  /*  */
+  /* background-image: url("../img-store/oladimeji-odunsi-2.jpg");
+  background-size: cover; */
+`;
+//blocl img 1   ---------------
+const ImgContainer = styled.div`
+  height: 100%;
+  /*  */
+  flex: 1;
+
+  /* background-color: #fde9d7; */
+`;
+const Image = styled.img`
+  /* height:80%;  */
+  width: 84%;
+  min-height: auto;
+  object-fit: cover;
+`;
+
+//
+// block text 2  ---------------
+const InfoContainer = styled.div`
+  /* background-color: #ff0; */
+  flex: 1;
+  padding: 50px 50px 50px 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+`;
+//
+const Title = styled.h1`
+  font-size: 70px;
+  font-family: "Poppins-medium";
+  color: #121212;
+`;
+const Desc = styled.p`
+  margin: 50px 10px 50px 0px;
+  font-size: 1.3em;
+  font-weight: 500;
+  font-family: "Poppins-light";
+  letter-spacing: 3px;
+`;
+const Button = styled.button`
+  padding: 10px;
+  font-size: 1.3em;
+  background-color: transparent;
+  border: 1px solid #000;
+`;
+//
+//
+//
+// ----------------------- slide --------------
 
 const Slider = () => {
   return (
@@ -49,6 +114,26 @@ const Slider = () => {
       <Arrow direction="left">
         <ArrowLeftOutlined />
       </Arrow>
+
+      <Wrapper>
+        <Slide>
+          <ImgContainer>
+            <Image src={img1} />
+          </ImgContainer>
+          {/* 
+          
+          
+          */}
+          <InfoContainer>
+            <Title>SUMMER SALE</Title>
+            <Desc>
+              DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.
+            </Desc>
+            <Button>SHOW NOW</Button>
+          </InfoContainer>
+        </Slide>
+      </Wrapper>
+
       <Arrow direction="right">
         <ArrowRightOutlined />
       </Arrow>

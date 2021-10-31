@@ -9,7 +9,8 @@ import styled from "styled-components";
 const Container = styled.div`
   padding: 10px 0;
   min-height: 1vh;
-  background-color: #ffffff;
+  background-color: rgb(248, 248, 248);
+ 
 `;
 
 //
@@ -38,7 +39,7 @@ const Language = styled.span`
 `;
 //
 const SearchContainer = styled.div`
-  border: 0.5px solid lightgray;
+  border: 0.5px solid #dddddd;
   display: flex;
   align-items: center;
   margin-left: 25px;
@@ -118,4 +119,4 @@ const Navbar = () => {
   );
 };
 
-export default  Navbar;
+export default Navbar;
