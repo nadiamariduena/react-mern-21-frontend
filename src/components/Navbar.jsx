@@ -75,7 +75,7 @@ const Right = styled.div`
   flex: 1;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
   // border: 1px solid #000;
 `;
@@ -90,7 +90,7 @@ const MenuItem = styled.div`
 //
 //
 
-export const Navbar = () => {
+const Navbar = () => {
   return (
     <Container>
       <Wrapper>
@@ -117,3 +117,5 @@ export const Navbar = () => {
     </Container>
   );
 };
+
+export default  Navbar;
