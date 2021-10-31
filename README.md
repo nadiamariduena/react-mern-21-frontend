@@ -260,3 +260,51 @@ export default Slider;
 ```
 
 [<img src="/src/img/slider-default_arrow-pos2_center.jpg"/>]()
+
+<br>
+
+## :honey_pot:
+
+## To position the arrows to each side, you will have to use <u>PROPS</u>
+
+- Apparently what we will do next **(to position then: left and right side)** is one of the best features of the styled components
+
+<br>
+
+#### Start by adding a direction to the arrows
+
+```javascript
+<Container>
+  <Arrow direction="left">
+    {" "}
+    //here------->
+    <ArrowLeftOutlined />
+  </Arrow>
+  <Arrow direction="right">
+    {" "}
+    //here------->
+    <ArrowRightOutlined />
+  </Arrow>
+</Container>
+```
+
+<br>
+
+### Now lets use this props: ArrowRightOutlined, direction="left , here below:
+
+```javascript
+  // props direction=
+//   Here we are telling:
+// 1 we will tell it 'take this props': left: ${(props)
+// 2 if the direction is  === "left", if its true, then its going to be 10px to one side
+  left: ${(props) => props.direction === "left" && "10px"};
+  right: ${(props) => props.direction === "right" && "10px"};
+```
+
+## [logical 'AND' operator (&&)](https://docs.microsoft.com/en-us/cpp/cpp/logical-and-operator-amp-amp?view=msvc-160)
+
+> The **logical 'AND' operator (&&)** <u>returns true if both operands are true and returns false otherwise.</u> The operands are implicitly converted to type bool before evaluation, and the result is of type bool. Logical AND has left-to-right associativity.
+
+- The operands to the logical AND operator **don't need to have the same type, but they must have boolean, integral, or pointer type.** The operands are commonly relational or equality expressions.
+
+[<img src="/src/img/slider_props_arrows_ANDoperator.gif"/>]()
