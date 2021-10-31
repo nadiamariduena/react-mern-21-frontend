@@ -524,8 +524,6 @@ const Button = styled.button`
 
 ## I did some changes to the original styles, so this is what we have until now:
 
-
-
 [<img src="/src/img/slide_prcess_img2_before_animation.jpg"/>]()
 
 ```javascript
@@ -671,3 +669,124 @@ const Slider = () => {
 
 export default Slider;
 ```
+
+<br>
+<br>
+
+# 🍯
+
+## Now duplicate the SLIDER to have something to slide on
+
+<br>
+
+[<img src="/src/img/slider_duplica-1.gif"/>]()
+
+<br>
+
+### Now lets change the direction
+
+- Go to the wrapper and add a **display:flex**, the sliders are now positioned side by side, but we cant see them, also add an **overflow:hidden**, so that it dont shake from side to side.
+
+```javascript
+const Wrapper = styled.div`
+  height: 100%;
+  display: flex;
+`;
+```
+
+<br>
+<br>
+
+🌈
+
+## COLOR PROPS
+
+### Lets add some background color to see in which slider we are,
+
+- Pass them as **PROPS**
+
+<br>
+
+- Add the following line inside the Slider
+
+```javascript
+bg='fcf1ed'
+
+// like so:
+
+ <Slide bg='f5fafd'>
+          <ImgContainer>
+            <Image src={img1} />
+          </ImgContainer>
+
+          <InfoContainer>
+            <Title>WINTER SALE</Title>
+            <Desc>
+              DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.
+            </Desc>
+            <Button>SHOW NOW</Button>
+          </InfoContainer>
+        </Slide>
+```
+
+<br>
+<br>
+
+### Then create the function to make the BG available:
+
+> **#${props=>props.bg};**
+
+<br>
+
+```javascript
+const Slide = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  // BG function color
+  //color PROPS
+  background-color: #${(props) => props.bg};
+  /* background-image: url("../img-store/oladimeji-odunsi-2.jpg");
+  background-size: cover; */
+  //
+  //
+`;
+```
+
+<br>
+<br>
+<br>
+
+# 🚧
+
+## SLIDER FUNCTIONALITY
+
+#### Lets create a click event to handle the left and right side, and after that we are going to handle that click.
+
+- add the following to the arrows:
+
+```javascript
+onClick={() => handleClick("left")}>
+onClick={() => handleClick("right")}>
+```
+
+<br>
+
+- to avoid the error **create the function** linked to the **handleClick**
+
+```javascript
+const Slider = () => {
+  //
+  //
+
+  const handleClick = (direction) => {};
+
+  //
+  return (
+    <Container>
+      <Arrow direction="left" onClick={() => handleClick("left")}>
+```
+ 
+
+[<img src="/src/img/slider_funczionality1.gif"/>]()

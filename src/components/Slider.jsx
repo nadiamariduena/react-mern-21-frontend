@@ -21,7 +21,7 @@ const Container = styled.div`
 const Arrow = styled.div`
   width: 50px;
   height: 50px;
-  background-color: #fff7f7;
+  /* background-color: #fff7f7; */
   //
   border-radius: 50%;
   display: flex;
@@ -45,6 +45,12 @@ const Arrow = styled.div`
 // ----------------------- slide --------------
 const Wrapper = styled.div`
   height: 100%;
+  /*  */
+  display: flex;
+  //
+  transform:translateX(-100px);
+  //
+
 `;
 //
 //
@@ -58,6 +64,10 @@ const Slide = styled.div`
   /*  */
   /* background-image: url("../img-store/oladimeji-odunsi-2.jpg");
   background-size: cover; */
+  //
+  //
+  //color PROPS
+  background-color: #${(props) => props.bg};
 `;
 //blocl img 1   ---------------
 const ImgContainer = styled.div`
@@ -109,21 +119,28 @@ const Button = styled.button`
 // ----------------------- slide --------------
 
 const Slider = () => {
+  //
+  //
+
+  const handleClick = (direction) => {};
+
+  //
   return (
     <Container>
-      <Arrow direction="left">
+      <Arrow direction="left" onClick={() => handleClick("left")}>
         <ArrowLeftOutlined />
       </Arrow>
 
       <Wrapper>
-        <Slide>
+        {/*  
+        peach:fcf1ed
+        üeach-low: fff7f7
+        */}
+        <Slide bg="F7F5EE">
           <ImgContainer>
             <Image src={img1} />
           </ImgContainer>
-          {/* 
-          
-          
-          */}
+
           <InfoContainer>
             <Title>SUMMER SALE</Title>
             <Desc>
@@ -132,9 +149,38 @@ const Slider = () => {
             <Button>SHOW NOW</Button>
           </InfoContainer>
         </Slide>
+        {/*  */}
+        <Slide bg="fff7f7">
+          {/* blue: */}
+          <ImgContainer>
+            <Image src={img1} />
+          </ImgContainer>
+
+          <InfoContainer>
+            <Title>WINTER SALE</Title>
+            <Desc>
+              DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.
+            </Desc>
+            <Button>SHOW NOW</Button>
+          </InfoContainer>
+        </Slide>
+        {/*  */}
+        <Slide>
+          <ImgContainer>
+            <Image src={img1} />
+          </ImgContainer>
+
+          <InfoContainer>
+            <Title>POPULAR </Title>
+            <Desc>
+              DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.
+            </Desc>
+            <Button>SHOW NOW</Button>
+          </InfoContainer>
+        </Slide>
       </Wrapper>
 
-      <Arrow direction="right">
+      <Arrow direction="right" onClick={() => handleClick("right")}>
         <ArrowRightOutlined />
       </Arrow>
     </Container>
