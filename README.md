@@ -90,6 +90,8 @@ npm install @material-ui/core @material-ui/icons   react-router-dom node-sass@4.
 npm i styled-components
 ```
 
+- **⚠️** Sometimes **styled components** can cause issues, as you cannot see if there is an error when you miss a **semicolon**
+
 <br>
 
 - **style components** are like css styles but have **more advantages**, this styles are included in the component you work (as you can see in the code below), **instead of having them in separated files** for each component.
