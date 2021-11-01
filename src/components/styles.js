@@ -5,7 +5,7 @@ export default makeStyles((theme) => ({
 //     margin: theme.spacing.unit * 2,
 //   },
   customBadge: {
-    backgroundColor: "#335DFF",
+    backgroundColor: "#CC5339",
     color: "white",
   },
 }));

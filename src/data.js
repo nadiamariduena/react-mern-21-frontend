@@ -1,7 +1,7 @@
 export const sliderItems = [
     {
       id: 1,
-      img: "img-store/oladimeji-odunsi-1.jpg",
+      img: "img-store/oladimeji-odunsi-3.jpg",
       title: "SUMMER SALE",
       desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
       bg: "fcf1e",

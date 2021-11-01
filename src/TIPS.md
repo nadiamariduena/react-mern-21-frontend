@@ -50,14 +50,27 @@ const Navbar = () => {
 
 #### and you will use it here:
 
--   **classes={{ badge: classes.customBadge }}**
+- **classes={{ badge: classes.customBadge }}**
 
 ```javascript
 <Badge
   badgeContent={4}
   classes={{ badge: classes.customBadge }}
-//   className={classes.margin}
+  //   className={classes.margin}
 >
   <ShoppingCartOutlined />
 </Badge>
 ```
+
+#### before
+
+[<img src="/src/img/slide_prcess_img2_before_animation.jpg"/>]()
+
+#### after
+
+- Dont bother about the image :), just look at the basket icon, its now salmon.
+
+[<img src="/src/img/icon-color-custom.jpg"/>]()
+
+
+### Maybe at the end of the project it will be nice to add some if statement to change the color depending on the page we are or the slider, as not all the colors match with the images aesthetic.
