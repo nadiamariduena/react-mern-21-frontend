@@ -5,7 +5,7 @@ import styled from "styled-components";
 //
 import { sliderItems } from "../data";
 //
-import img1 from "../img-store/oladimeji-odunsi-2.jpg";
+// import img1 from "../img-store/oladimeji-odunsi-2.jpg";
 //
 
 const Container = styled.div`
@@ -22,9 +22,10 @@ const Container = styled.div`
 const Arrow = styled.div`
   width: 50px;
   height: 50px;
-  /* background-color: #fff7f7; */
+  background-color: #fff7f7;
   //
   border-radius: 50%;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,7 +38,7 @@ const Arrow = styled.div`
   right: ${(props) => props.direction === "right" && "10px"};
   //
   margin: auto;
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: pointer;
   //
   z-index: 2;
@@ -50,7 +51,8 @@ const Wrapper = styled.div`
   /*  */
   display: flex;
   //
-  transform: translateX(0vw);
+  transition: all 1.2s ease;
+  transform: translateX(${(props) => props.slideIndex * -100}vw);
   //100 will move it to the right
   //-100 will move the slider to the left
 `;
@@ -99,6 +101,7 @@ const InfoContainer = styled.div`
 //
 const Title = styled.h1`
   font-size: 70px;
+  line-height: 68px;
   font-family: "Poppins-medium";
   color: #121212;
 `;
@@ -125,7 +128,13 @@ const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
   //
 
-  const handleClick = (direction) => {};
+  const handleClick = (direction) => {
+    if (direction === "left") {
+      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+    } else {
+      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+    }
+  };
 
   //
   return (
@@ -134,7 +143,7 @@ const Slider = () => {
         <ArrowLeftOutlined />
       </Arrow>
 
-      <Wrapper>
+      <Wrapper slideIndex={slideIndex}>
         {sliderItems.map((items) => (
           <Slide bg={items.bg}>
             <ImgContainer>
@@ -143,9 +152,7 @@ const Slider = () => {
 
             <InfoContainer>
               <Title>{items.title}</Title>
-              <Desc>
-               {items.desc}
-              </Desc>
+              <Desc>{items.desc}</Desc>
               <Button>SHOW NOW</Button>
             </InfoContainer>
           </Slide>

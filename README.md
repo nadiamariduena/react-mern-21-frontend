@@ -5,6 +5,52 @@
  
   <br>
 
+
+Photographs for projects
+
+
+FOOD and objects ----------
+
+https://unsplash.com/@imdauphong
+
+https://unsplash.com/photos/xLS_W6RVx-8
+
+https://unsplash.com/@wendish
+
+https://unsplash.com/@stilclassics
+
+https://unsplash.com/@charlesdeluvio
+
+
+PLACES ---------
+
+https://unsplash.com/@spoelee4
+
+
+
+PEOPLE ---------
+
+https://unsplash.com/@raphaellovaski
+https://unsplash.com/photos/88IOcZz53eg
+https://unsplash.com/photos/Tfbw4CFFPaY
+
+---
+
+https://unsplash.com/@kirsimakov
+
+---
+
+https://unsplash.com/@ronmcclenny
+
+---
+
+https://unsplash.com/photos/WJ85c_l6JSE
+
+---
+
+https://unsplash.com/photos/aU_eOcelLhQ
+
+
 # 🐝
 
 # Let's Begin!
@@ -822,6 +868,12 @@ const Wrapper = styled.div`
 [<img src="/src/img/slider_funczionality2.gif"/>]()
 
 <br>
+
+## 🌞
+
+#### [Why Moving Elements With Translate() Is Better Than Position:absolute Top/left ](https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/)
+
+<br>
 <br>
 
 ### So for now its going to stay at 0
@@ -930,18 +982,348 @@ import { sliderItems } from "../data";
 ### Now map the 2 other sliders here:
 
 ```javascript
-      <Wrapper>
+<Wrapper>
+  {sliderItems.map((items) => (
+    <Slide bg="fcf1ed">
+      <ImgContainer>
+        <Image src={img1} />
+      </ImgContainer>
+
+      <InfoContainer>
+        <Title>SUMMER SALE</Title>
+        <Desc>
+          DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.
+        </Desc>
+        <Button>SHOW NOW</Button>
+      </InfoContainer>
+    </Slide>
+  ))}
+
+  {/*  */}
+</Wrapper>
+```
+
+<br>
+
+### After you start mapping the data from the the data.js, replace a couple of things
+
+- As you can see, you dont need to have the text or the images here (as you used to have), as all is coming from the the data.js
+
+```javascript
+<Wrapper>
+  {sliderItems.map((items) => (
+    <Slide bg={items.bg}>
+      <ImgContainer>
+        <Image src={items.img} />
+      </ImgContainer>
+
+      <InfoContainer>
+        <Title>{items.title}</Title>
+        <Desc>{items.desc}</Desc>
+        <Button>SHOW NOW</Button>
+      </InfoContainer>
+    </Slide>
+  ))}
+
+  {/*  */}
+</Wrapper>
+```
+
+### The SET STATE
+
+```javascript
+const Slider = () => {
+  //
+  const [slideIndex, setSlideIndex] = useState(0);
+  //
+
+  const handleClick = (direction) => {
+    //1 Remember you default state is (0)
+    // 2 So IF (direction) is left, we are going to do something
+    if (direction === "left") {
+      // if its not the first item make it
+      // minus 1, which will make it to slide to the previous img to the left
+      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+      //  slideIndex-1(push it to the left)
+      // 4 if it s not ':' (which means if it s our first slide) then you can go until the last item which is 2
+      // NOW THE RIGHT SIDE HERE BELOW:
+    } else {
+      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+      // 5 if slider index is smaller than 2, it means we can go to the
+      // right side, so we can increase our slide index + 1, if it s not then we can return to our first slide which is cero : 0
+    }
+  };
+```
+
+<br>
+
+### Now lets use this values, pass it first as props inside the wrapper, like so:
+
+- Go to the styles
+
+```javascript
+  <Wrapper slideIndex={slideIndex}>
+
+```
+
+<br>
+
+#### Now Go to the styles and link it to the wrapper props
+
+```javascript
+// Before slideIndex
+  transform: translateX(0vw);
+  //100 will move it to the right
+  //-100 will move the slider to the left
+//
+//
+//
+// after
+//
+// So here we are telling it to take the (props) and then multiply the props * for 100vw, which will make the whole 100vw of the screen to move
+  transform: translateX(${(props) => props.slideIndex * -100}vw);
+  //100 will move it to the right
+  //-100 will move the slider to the left
+```
+
+<br>
+<br>
+
+### Lets summarize the important points
+
+```javascript
+// 1 the arrows linked to the function that will contain the logic of the slider
+<Arrow direction="left" onClick={() => handleClick("left")}>
+  <ArrowLeftOutlined />
+</Arrow>;
+
+//
+//
+// 2 the data inside the wrapper
+{
+  sliderItems.map((items) => (
+    <Slide bg={items.bg}>
+      <ImgContainer>
+        <Image src={items.img} />
+      </ImgContainer>
+
+      <InfoContainer>
+        <Title>{items.title}</Title>
+        <Desc>{items.desc}</Desc>
+        <Button>SHOW NOW</Button>
+      </InfoContainer>
+    </Slide>
+  ));
+}
+//
+//
+//
+//
+// 3 initializing the set, that will be used to change the state of the arrows
+const [slideIndex, setSlideIndex] = useState(0);
+//
+//
+//
+//
+//
+// 4 the if statement (the logic of the slider)
+const handleClick = (direction) => {
+  if (direction === "left") {
+    setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+  } else {
+    setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+  }
+};
+//
+//
+//
+//
+// 5 use the state inside the wrapper
+ <Wrapper slideIndex={slideIndex}>
+```
+
+```javascript
+// 6 link the state to the style
+// ----------------------- slide --------------
+const Wrapper = styled.div`
+  transform: translateX(${(props) => props.slideIndex * -100}vw);
+`;
+```
+
+[<img src="/src/img/slider_funczionality3_ready.gif"/>]()
+
+<br>
+<br>
+<br>
+
+### Add the Animation
+
+- **warning**: the slower the animation is, the more your performance will suffer, so lets say that you add 6s (super smooth) can be bad for big stuff 100vw like this, so lets just add 1.2s
+
+```javascript
+ transition: all 1.2s ease;
+```
+
+<br>
+
+### so what we have until now
+
+```javascript
+import React, { useState } from "react";
+import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
+
+import styled from "styled-components";
+//
+import { sliderItems } from "../data";
+//
+import img1 from "../img-store/oladimeji-odunsi-2.jpg";
+//
+
+const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  /* background-color: #ff0; */
+  //
+  //
+  position: relative;
+`;
+//
+// Arrows
+const Arrow = styled.div`
+  width: 50px;
+  height: 50px;
+  background-color: #fff7f7;
+  //
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  //
+  // props direction=
+  left: ${(props) => props.direction === "left" && "10px"};
+  right: ${(props) => props.direction === "right" && "10px"};
+  //
+  margin: auto;
+  opacity: 0.4;
+  cursor: pointer;
+  //
+  z-index: 2;
+`;
+
+//
+// ----------------------- slide --------------
+const Wrapper = styled.div`
+  height: 100%;
+  /*  */
+  display: flex;
+  //
+  transition: all 1.2s ease;
+  transform: translateX(${(props) => props.slideIndex * -100}vw);
+  //100 will move it to the right
+  //-100 will move the slider to the left
+`;
+//
+//
+
+const Slide = styled.div`
+  width: 100vw;
+  height: 100vh;
+  /*  */
+  display: flex;
+  align-items: center;
+  /*  */
+  /* background-image: url("../img-store/oladimeji-odunsi-2.jpg");
+  background-size: cover; */
+  //
+  //
+  //color PROPS
+  background-color: #${(props) => props.bg};
+`;
+//blocl img 1   ---------------
+const ImgContainer = styled.div`
+  height: 100%;
+  /*  */
+  flex: 1;
+
+  /* background-color: #fde9d7; */
+`;
+const Image = styled.img`
+  /* height:80%;  */
+  width: 84%;
+  min-height: auto;
+  object-fit: cover;
+`;
+
+//
+// block text 2  ---------------
+const InfoContainer = styled.div`
+  /* background-color: #ff0; */
+  flex: 1;
+  padding: 50px 50px 50px 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+`;
+//
+const Title = styled.h1`
+  font-size: 70px;
+  line-height: 68px;
+  font-family: "Poppins-medium";
+  color: #121212;
+`;
+const Desc = styled.p`
+  margin: 50px 10px 50px 0px;
+  font-size: 1.3em;
+  font-weight: 500;
+  font-family: "Poppins-light";
+  letter-spacing: 3px;
+`;
+const Button = styled.button`
+  padding: 10px;
+  font-size: 1.3em;
+  background-color: transparent;
+  border: 1px solid #000;
+`;
+//
+//
+//
+// ----------------------- slide --------------
+
+const Slider = () => {
+  //
+  const [slideIndex, setSlideIndex] = useState(0);
+  //
+
+  const handleClick = (direction) => {
+    if (direction === "left") {
+      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+    } else {
+      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+    }
+  };
+
+  //
+  return (
+    <Container>
+      <Arrow direction="left" onClick={() => handleClick("left")}>
+        <ArrowLeftOutlined />
+      </Arrow>
+
+      <Wrapper slideIndex={slideIndex}>
         {sliderItems.map((items) => (
-          <Slide bg="fcf1ed">
+          <Slide bg={items.bg}>
             <ImgContainer>
-              <Image src={img1} />
+              <Image src={items.img} />
             </ImgContainer>
 
             <InfoContainer>
-              <Title>SUMMER SALE</Title>
-              <Desc>
-                DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.
-              </Desc>
+              <Title>{items.title}</Title>
+              <Desc>{items.desc}</Desc>
               <Button>SHOW NOW</Button>
             </InfoContainer>
           </Slide>
@@ -949,7 +1331,13 @@ import { sliderItems } from "../data";
 
         {/*  */}
       </Wrapper>
-```
-<br>
 
-### replace a couple of things
+      <Arrow direction="right" onClick={() => handleClick("right")}>
+        <ArrowRightOutlined />
+      </Arrow>
+    </Container>
+  );
+};
+
+export default Slider;
+```

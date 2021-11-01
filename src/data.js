@@ -8,7 +8,7 @@ export const sliderItems = [
     },
     {
       id: 2,
-      img: "img-store/oladimeji-odunsi-3.jpg",
+      img: "img-store/oladimeji-odunsi-1.jpg",
       title: "AUTUMN COLLECTION",
       desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
       bg: "9DCBDF",
