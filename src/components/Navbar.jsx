@@ -8,14 +8,13 @@ import useStyles from "./styles";
 //
 
 const Container = styled.div`
-  padding: 10px 0;
-  min-height: 1vh;
+  height: auto;
   background-color: rgb(248, 248, 248);
 `;
 
 //
 const Wrapper = styled.div`
-  padding: 5px 20px;
+  padding: 13px 20px;
   display: flex;
   align-items: center;
   //   will divide them in 3 parts

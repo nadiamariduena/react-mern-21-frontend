@@ -125,8 +125,45 @@ this.state.elements.map((element, index) => {
 ### [How to Add a GDPR Agreement to Your Forms (Easy Method)](https://wpforms.com/how-to-add-a-gdpr-agreement-field-to-your-sites-forms/)
 
 <br>
-
 <hr>
+<br>
+
+# CALC
+
+[A Complete Guide to calc() in CSS](https://css-tricks.com/a-complete-guide-to-calc-in-css/)
+
+```javascript
+.main-content {
+  /* Subtract 80px from 100vh */
+  height: calc(100vh - 80px);
+}
+```
+
+### Clamp()
+
+[CSS Clamp(): The Responsive Combination We’ve All Been Waiting For](https://blog.bitsrc.io/css-clamp-the-responsive-combination-weve-all-been-waiting-for-f1ce1981ea6e)
+
+> If you haven’t experienced this yet, not to worry, you will. But what you won’t have to do is come up with some complex event listeners using the Web API ResizeObserver or CSS calc() functions or even CSS media queries that would swap out complete elements or components depending on the viewport size. 😓
+
+> No, nothing requiring so much effort as that anymore, for we live in an age where CSS is awesome, and it just keeps getting better by the day (and with wider and wider spread browser support too). Today, I want to share with you the CSS clamp() function — a single function, purpose-built to allow almost any element to adjust its size within certain bounds to fit the viewport.
+
+```javascript
+div {
+  // other CSS...
+  font-size: clamp(1.1rem, 0.7153rem + 1.6368vw, 1.5rem);
+}
+```
+
+<br>
+
+> Now before you think I figured this preferred value out on my own, I didn’t. This excellent article from Pedro Rodriguez on CSS Tricks has an awesome little calculator he made where you can plug in the MIN and MAX font-sizes and it will compute the preferred font-size value to plug in between them so they scale while staying readable throughout.
+
+- I highly recommend trying it out yourself for any responsive font-sizing you may need as well.
+  To break down this code though, the font-size will be set at 1.1rem, until the computed value of 0.7153rem + 1.6368vw becomes greater than that of 1.1rem. At this point, the font-size value will be calculated by the formula of 0.7153rem + 1.6368vw, until this preferred value's computed value becomes greater than that of 1.5rem. At this point, the font-size will be set at 1.5rem.
+
+<br>
+<hr>
+<br>
 
 [How do I blur the background but not the text that sits on top of it?](https://www.quora.com/How-do-I-blur-the-background-but-not-the-text-that-sits-on-top-of-it)
 

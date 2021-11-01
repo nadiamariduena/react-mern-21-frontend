@@ -11,8 +11,21 @@ import { sliderItems } from "../data";
 const Container = styled.div`
   width: 100%;
   height: 100vh;
+  /* height: calc(100vh - 43px); */
+
   display: flex;
-  /* background-color: #ff0; */
+  background: #f09819; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #edde5d,
+    #f09819
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #edde5d,
+    #f09819
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   //
   //
   position: relative;
@@ -48,6 +61,7 @@ const Arrow = styled.div`
 // ----------------------- slide --------------
 const Wrapper = styled.div`
   height: 100%;
+
   /*  */
   display: flex;
   //
@@ -61,7 +75,9 @@ const Wrapper = styled.div`
 
 const Slide = styled.div`
   width: 100vw;
-  height: 100vh;
+  /* height:100vh; */
+  height: calc(100vh - 12.5vh);
+
   /*  */
   display: flex;
   align-items: center;
@@ -69,21 +85,23 @@ const Slide = styled.div`
   /* background-image: url("../img-store/oladimeji-odunsi-2.jpg");
   background-size: cover; */
   //
-  //
+  //creme color fcf1e
   //color PROPS
   background-color: #${(props) => props.bg};
+  color: #${(props) => props.fColor};
 `;
 //blocl img 1   ---------------
 const ImgContainer = styled.div`
   height: 100%;
   /*  */
   flex: 1;
-
+  overflow: hidden;
   /* background-color: #fde9d7; */
 `;
 const Image = styled.img`
   /* height:80%;  */
-  width: 84%;
+  width: 80%;
+
   min-height: auto;
   object-fit: cover;
 `;
@@ -103,7 +121,7 @@ const Title = styled.h1`
   font-size: 70px;
   line-height: 68px;
   font-family: "Poppins-medium";
-  color: #121212;
+  /* color: #121212; */
 `;
 const Desc = styled.p`
   margin: 50px 10px 50px 0px;
@@ -116,7 +134,9 @@ const Button = styled.button`
   padding: 10px;
   font-size: 1.3em;
   background-color: transparent;
-  border: 1px solid #000;
+  text-transform: uppercase;
+  border: 1px solid #${(props) => props.fColor};
+  color: #${(props) => props.fColor};
 `;
 //
 //
@@ -145,7 +165,7 @@ const Slider = () => {
 
       <Wrapper slideIndex={slideIndex}>
         {sliderItems.map((items) => (
-          <Slide bg={items.bg}>
+          <Slide bg={items.bg} fColor={items.fColor}>
             <ImgContainer>
               <Image src={items.img} />
             </ImgContainer>
@@ -153,7 +173,7 @@ const Slider = () => {
             <InfoContainer>
               <Title>{items.title}</Title>
               <Desc>{items.desc}</Desc>
-              <Button>SHOW NOW</Button>
+              <Button fColor={items.fColor}>{items.button}</Button>
             </InfoContainer>
           </Slide>
         ))}

@@ -88,6 +88,12 @@ npm install @material-ui/core @material-ui/icons   react-router-dom node-sass@4.
 
  <br>
 
+ <br>
+
+- This is the continuation of **default-home-and-navbar**
+
+<br>
+
 # 🐝
 
 # Let's Begin!
@@ -97,6 +103,8 @@ npm install @material-ui/core @material-ui/icons   react-router-dom node-sass@4.
 <br>
 
 - **⚠️** Sometimes **styled components** can cause issues, as you cannot see if there is an error when you miss a **semicolon**
+
+
 
  <br>
  <br>
@@ -1050,7 +1058,9 @@ const Slider = () => {
     } else {
       setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
       // 5 if slider index is smaller than 2, it means we can go to the
-      // right side, so we can increase our slide index + 1, if it s not then we can return to our first slide which is cero : 0
+      // right side, so we can increase our slide index + 1, if it s not, then we can return to our first slide which is cero : 0
+      //
+      // so what it s doing is that if we reach the end(in this case2) it will send us to the 0 which is the beginning
     }
   };
 ```
@@ -1166,7 +1176,7 @@ const Wrapper = styled.div`
 
 <br>
 
-### so what we have until now
+### This is what we have until now
 
 ```javascript
 import React, { useState } from "react";
@@ -1341,3 +1351,94 @@ const Slider = () => {
 
 export default Slider;
 ```
+
+<br>
+<br>
+<br>
+
+# A bit curious 🍰
+
+> After i saw the teacher manipulating the background color through PROPS (from data that came from the data.js), **i felt excited about the possibilities of changing not only** the font but every color in the slider depending of the slide we are.
+
+<br>
+
+So i proceeded to include the button inside the data.js so that i could also modify the color depending of the slide
+
+```javascript
+// data.js
+    fColor: "ffffff",
+    button: "shop now",
+```
+
+<br>
+
+## the way it looks inside the Slider.js
+
+- I added the **fColor** like so: **fColor={items.fColor}**
+
+```javascript
+<Wrapper slideIndex={slideIndex}>
+  {sliderItems.map((items) => (
+    <Slide bg={items.bg} fColor={items.fColor}>
+      <ImgContainer>
+        <Image src={items.img} />
+      </ImgContainer>
+
+      <InfoContainer>
+        <Title>{items.title}</Title>
+        <Desc>{items.desc}</Desc>
+        <Button fColor={items.fColor}>{items.button}</Button>
+      </InfoContainer>
+    </Slide>
+  ))}
+
+  {/*  */}
+</Wrapper>
+```
+
+### and in the styled components...
+
+```javascript
+const Button = styled.button`
+  padding: 10px;
+  font-size: 1.3em;
+  background-color: transparent;
+  text-transform: uppercase;
+  //
+  // colors props from data.js
+  border: 1px solid #${(props) => props.fColor};
+  color: #${(props) => props.fColor};
+`;
+```
+
+[<img src="/src/img/slider_funczionality_changes_colorsbutton.gif"/>]()
+
+<br>
+<br>
+<hr>
+
+# MORE CHANGES
+
+### (related to calc)
+
+##### [A Complete Guide to calc() in CSS](https://css-tricks.com/a-complete-guide-to-calc-in-css/)
+
+- This one is not sure i will keep as, we have a long way until the project is ready
+
+#### I decided to add a calc to the container of the slider because i was feeling a bit uncomfortable seeing the box getting out of sight, so i decided to test the <u>calc </u> to try to reduce the size of the slider box (100vh), depending of the size of the navbar and the announcement component.
+
+<br>
+
+- I still dont know if i did it correctly but i got what i wanted, the box reduced its size (the yellow is just to see if it worked)
+
+**the calculation**, it s just the size of the navbar and announcement in(43px) + the slider height 100vh, I wanted to see how it would look like if i was testing it from the Home.jsx as if it has to be done, it should be done there, but i did it in the Slider to have just a preview. why i didn't do it inside the Home.jsx? because we still have more compoenents to add and its useless.
+
+> I ended up adding this calc below, and this is how it looks in my **1680x1050** screen
+
+```javascript
+  height: calc(100vh - 12.5vh);
+```
+
+<br>
+
+[<img src="/src/img/slider_funczionality_changes_calc.gif"/>]()
