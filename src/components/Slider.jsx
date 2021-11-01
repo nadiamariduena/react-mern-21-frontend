@@ -104,6 +104,14 @@ const Image = styled.img`
 
   min-height: auto;
   object-fit: cover;
+
+  /*
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1;
+    // The aspect-ratio  CSS property sets a preferred aspect ratio for the box, which will be used in the calculation of auto sizes and some other layout functions.
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
+   */
 `;
 
 //

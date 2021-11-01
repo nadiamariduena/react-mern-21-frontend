@@ -72,5 +72,34 @@ const Navbar = () => {
 
 [<img src="/src/img/icon-color-custom.jpg"/>]()
 
-
 ### Maybe at the end of the project it will be nice to add some if statement to change the color depending on the page we are or the slider, as not all the colors match with the images aesthetic.
+
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+## IMG OPTION
+
+- The option 2 seems nice (its just that the text is too close)
+
+```javascript
+const Image = styled.img`
+  width: 80%;
+  min-height: auto;
+  object-fit: cover;
+
+  /*
+//option 2
+
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1;
+    // The aspect-ratio  CSS property sets a preferred aspect ratio for the box, which will be used in the calculation of auto sizes and some other layout functions.
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
+   */
+`;
+```
+
+[<img src="/src/img/slider_funczionality_changes_img-option.gif"/>]()
