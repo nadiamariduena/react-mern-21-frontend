@@ -2,7 +2,7 @@ import React from "react";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
 import styled from "styled-components";
-
+import useStyles from "./styles";
 //
 //
 
@@ -10,7 +10,6 @@ const Container = styled.div`
   padding: 10px 0;
   min-height: 1vh;
   background-color: rgb(248, 248, 248);
- 
 `;
 
 //
@@ -89,9 +88,13 @@ const MenuItem = styled.div`
 `;
 
 //
+
 //
 
 const Navbar = () => {
+  const classes = useStyles();
+
+  // 
   return (
     <Container>
       <Wrapper>
@@ -109,7 +112,11 @@ const Navbar = () => {
           <MenuItem>REGISTER</MenuItem>
           <MenuItem>SIGN IN</MenuItem>
           <MenuItem>
-            <Badge badgeContent={4} color="primary">
+            <Badge
+              badgeContent={4}
+              classes={{ badge: classes.customBadge }}
+              className={classes.margin}
+            >
               <ShoppingCartOutlined />
             </Badge>
           </MenuItem>

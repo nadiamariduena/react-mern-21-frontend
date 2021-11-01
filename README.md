@@ -1,6 +1,7 @@
  <!-- 
- 
- 
+ styles badge, at the end i decided to cusrom them like in the ecommercejs project
+ where i had to create a styles.js file and add the styles there then export it as hook
+ https://stackoverflow.com/questions/55766980/custom-color-to-badge-component-not-working
  
   <br>
 
@@ -760,7 +761,7 @@ const Slide = styled.div`
 
 # 🚧
 
-## SLIDER FUNCTIONALITY
+# SLIDER FUNCTIONALITY
 
 #### Lets create a click event to handle the left and right side, and after that we are going to handle that click.
 
@@ -787,6 +788,168 @@ const Slider = () => {
     <Container>
       <Arrow direction="left" onClick={() => handleClick("left")}>
 ```
- 
+
+<br>
+
+## Check the following, so that you see that the pictures are side by side:
+
+<br>
+
+- Add this: **transform: translateX(-100px);** , the translate will move it to the X direction, **minus** the pixels you add as values, in this case **100px**
+
+<BR>
+
+```javascript
+// ----------------------- slide --------------
+const Wrapper = styled.div`
+  height: 100%;
+  /*  */
+  display: flex;
+  //
+  transform: translateX(-100px);
+  //
+`;
+```
+
+<br>
 
 [<img src="/src/img/slider_funczionality1.gif"/>]()
+
+<br>
+
+### NOW TRY adding: <u>transform: translateX(-100vw);</u>
+
+[<img src="/src/img/slider_funczionality2.gif"/>]()
+
+<br>
+<br>
+
+### So for now its going to stay at 0
+
+```javascript
+// ----------------------- slide --------------
+const Wrapper = styled.div`
+  transform: translateX(0vw);
+  //
+`;
+```
+
+<br>
+
+## now add a z-index to the arrows, so that they come in front of the layers
+
+```javascript
+// Arrows
+const Arrow = styled.div`
+  width: 50px;
+  height: 50px;
+  /* background-color: #fff7f7; */
+  //
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  //
+  // props direction=
+  left: ${(props) => props.direction === "left" && "10px"};
+  right: ${(props) => props.direction === "right" && "10px"};
+  //
+  margin: auto;
+  opacity: 0.5;
+  cursor: pointer;
+  //
+  z-index: 2;
+`;
+```
+
+<br>
+<br>
+
+### Now we can start with the serious stuff. Create the hook to handle the state change
+
+- at the beginning we are setting it at 0: **useState(0);**
+
+```javascript
+import React, { useState } from "react";
+//
+//
+const Slider = () => {
+  //
+  const [slideIndex, setSlideIndex] = useState(0);
+  //
+```
+
+<br>
+
+### Now create a file where you will store all the data from the sliders
+
+- create it inside the **src** folder
+
+- copy the following data from [the official repo](https://github.com/safak/youtube/blob/react-shop-ui/src/data.js)
+
+```javascript
+export const sliderItems = [
+  {
+    id: 1,
+    img: "img-store/oladimeji-odunsi-1.jpg",
+    title: "SUMMER SALE",
+    desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+    bg: "fcf1e",
+  },
+  {
+    id: 2,
+    img: "https://i.ibb.co/DG69bQ4/2.png",
+    title: "AUTUMN COLLECTION",
+    desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+    bg: "9DCBDF",
+  },
+  {
+    id: 3,
+    img: "../img-store/oladimeji-odunsi-2.jpg",
+    title: "LOUNGEWEAR LOVE",
+    desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+    bg: "FFD647",
+  },
+];
+```
+
+### Once you added the 3 OBJECTS with the slider data, you can now delete 2 of them in the Slider.jsx
+
+- import the data.js hook , like so:
+
+```javascript
+//
+import { sliderItems } from "../data";
+```
+
+<br>
+
+### Now map the 2 other sliders here:
+
+```javascript
+      <Wrapper>
+        {sliderItems.map((items) => (
+          <Slide bg="fcf1ed">
+            <ImgContainer>
+              <Image src={img1} />
+            </ImgContainer>
+
+            <InfoContainer>
+              <Title>SUMMER SALE</Title>
+              <Desc>
+                DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.
+              </Desc>
+              <Button>SHOW NOW</Button>
+            </InfoContainer>
+          </Slide>
+        ))}
+
+        {/*  */}
+      </Wrapper>
+```
+<br>
+
+### replace a couple of things

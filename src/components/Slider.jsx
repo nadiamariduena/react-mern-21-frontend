@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 
 import styled from "styled-components";
-
+//
+import { sliderItems } from "../data";
 //
 import img1 from "../img-store/oladimeji-odunsi-2.jpg";
 //
@@ -11,7 +12,7 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
-
+  /* background-color: #ff0; */
   //
   //
   position: relative;
@@ -39,6 +40,7 @@ const Arrow = styled.div`
   opacity: 0.5;
   cursor: pointer;
   //
+  z-index: 2;
 `;
 
 //
@@ -48,9 +50,9 @@ const Wrapper = styled.div`
   /*  */
   display: flex;
   //
-  transform:translateX(-100px);
-  //
-
+  transform: translateX(0vw);
+  //100 will move it to the right
+  //-100 will move the slider to the left
 `;
 //
 //
@@ -120,6 +122,7 @@ const Button = styled.button`
 
 const Slider = () => {
   //
+  const [slideIndex, setSlideIndex] = useState(0);
   //
 
   const handleClick = (direction) => {};
@@ -132,52 +135,23 @@ const Slider = () => {
       </Arrow>
 
       <Wrapper>
-        {/*  
-        peach:fcf1ed
-        üeach-low: fff7f7
-        */}
-        <Slide bg="F7F5EE">
-          <ImgContainer>
-            <Image src={img1} />
-          </ImgContainer>
+        {sliderItems.map((items) => (
+          <Slide bg={items.bg}>
+            <ImgContainer>
+              <Image src={items.img} />
+            </ImgContainer>
 
-          <InfoContainer>
-            <Title>SUMMER SALE</Title>
-            <Desc>
-              DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.
-            </Desc>
-            <Button>SHOW NOW</Button>
-          </InfoContainer>
-        </Slide>
+            <InfoContainer>
+              <Title>{items.title}</Title>
+              <Desc>
+               {items.desc}
+              </Desc>
+              <Button>SHOW NOW</Button>
+            </InfoContainer>
+          </Slide>
+        ))}
+
         {/*  */}
-        <Slide bg="fff7f7">
-          {/* blue: */}
-          <ImgContainer>
-            <Image src={img1} />
-          </ImgContainer>
-
-          <InfoContainer>
-            <Title>WINTER SALE</Title>
-            <Desc>
-              DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.
-            </Desc>
-            <Button>SHOW NOW</Button>
-          </InfoContainer>
-        </Slide>
-        {/*  */}
-        <Slide>
-          <ImgContainer>
-            <Image src={img1} />
-          </ImgContainer>
-
-          <InfoContainer>
-            <Title>POPULAR </Title>
-            <Desc>
-              DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.
-            </Desc>
-            <Button>SHOW NOW</Button>
-          </InfoContainer>
-        </Slide>
       </Wrapper>
 
       <Arrow direction="right" onClick={() => handleClick("right")}>
