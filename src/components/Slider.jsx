@@ -11,20 +11,21 @@ import { sliderItems } from "../data";
 const Container = styled.div`
   width: 100%;
   height: 100vh;
+  /* height: calc(100vh - 12.2vh); */
   /* height: calc(100vh - 43px); */
 
   display: flex;
-  background: #f09819; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
+  //background: #f09819; /* fallback for old browsers */
+  //background: -webkit-linear-gradient(
+  /*  to right,
+    #edde5d,
+    #f09819
+  );  Chrome 10-25, Safari 5.1-6 */
+/*  background: linear-gradient(
     to right,
     #edde5d,
     #f09819
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #edde5d,
-    #f09819
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  );  W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   //
   //
@@ -76,7 +77,7 @@ const Wrapper = styled.div`
 const Slide = styled.div`
   width: 100vw;
   /* height:100vh; */
-  height: calc(100vh - 12.5vh);
+  height: calc(100vh - 12vh);
 
   /*  */
   display: flex;
@@ -99,19 +100,10 @@ const ImgContainer = styled.div`
   /* background-color: #fde9d7; */
 `;
 const Image = styled.img`
-  /* height:80%;  */
-  width: 80%;
-
-  min-height: auto;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-
-  /*
-    width: 100%;
-    object-fit: cover;
-    aspect-ratio: 1;
-    // The aspect-ratio  CSS property sets a preferred aspect ratio for the box, which will be used in the calculation of auto sizes and some other layout functions.
-    // https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
-   */
+  aspect-ratio: 1;
 `;
 
 //
@@ -119,7 +111,7 @@ const Image = styled.img`
 const InfoContainer = styled.div`
   /* background-color: #ff0; */
   flex: 1;
-  padding: 50px 50px 50px 20px;
+  padding: 50px 50px 50px 30px;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
@@ -145,6 +137,7 @@ const Button = styled.button`
   text-transform: uppercase;
   border: 1px solid #${(props) => props.fColor};
   color: #${(props) => props.fColor};
+  cursor: pointer;
 `;
 //
 //

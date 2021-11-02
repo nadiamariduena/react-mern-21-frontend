@@ -9,7 +9,7 @@ import useStyles from "./styles";
 
 const Container = styled.div`
   height: auto;
-  background-color: rgb(248, 248, 248);
+  background-color: #edebe4;
 `;
 
 //
