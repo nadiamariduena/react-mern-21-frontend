@@ -38,7 +38,7 @@ const Image = styled.img`
 //
 // This is going to be a mask on top of the products
 const Info = styled.div`
-   width: 100%;
+  width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
@@ -48,10 +48,10 @@ const Info = styled.div`
   //to center the icons
   display: flex;
   justify-content: center;
- align-items: center;
+  align-items: center;
 `;
 const Icon = styled.div`
-   width: 40px;
+  width: 40px;
   height: 40px;
   border-radius: 50%;
   background-color: #ffffff;
@@ -60,7 +60,14 @@ const Icon = styled.div`
   justify-content: center;
   align-items: center;
   //
- margin: 7px;
+  margin: 7px;
+  //
+  //hover
+  &:hover {
+    background-color: #ffcda3;
+    transform: scale(1.1);
+
+  }
 `;
 
 //

@@ -771,9 +771,31 @@ const Info = styled.div`
   z-index: 3;
 ```
 
-[<img src="/src/img/products_pos-relative.gif" />]();
+[<img src="/src/img/products_pos-relative.gif" />]()
 
 <br>
 <br>
 
-### the hover of the img box
+# ICONS HOVER
+
+<br>
+
+#### We will make them a bit bigger when hovering, to do that we will use <u>_transform scale_</u>
+
+> The folowing is the **vanilla way** of doing it, another cool way is using **framer motion**.
+
+#### [framer-motion **options**](https://www.framer.com/docs/examples/)
+
+<br>
+
+```javascript
+const Icon = styled.div`
+  //hover
+  &:hover {
+    background-color: #ffcda3;
+    transform: scale(1.1); //1.1 is small, 2 a bit bigger
+  }
+`;
+```
+
+[<img src="/src/img/icons_hover.gif" />]()
