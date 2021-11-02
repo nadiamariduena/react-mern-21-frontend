@@ -56,8 +56,12 @@ const Circle = styled.div`
   position: absolute;
 `;
 const Image = styled.img`
-  height: 75%;
+  /* height: 75%; */
+  width: 100%;
+  height: 100%;
   z-index: 2;
+  object-fit: cover;
+  aspect-ratio: 1;
 `;
 
 //

@@ -10,7 +10,6 @@ const Container = styled.div`
   margin: 3px;
   height: 70vh;
   position: relative;
- 
 `;
 const Image = styled.img`
   width: 100%;
@@ -49,6 +48,14 @@ const Button = styled.button`
   background-color: transparent;
   text-transform: uppercase;
   cursor: pointer;
+  //
+  transition: all 0.5s ease-in-out;
+  //
+  //hover
+  &:hover {
+    background-color: #13131318;
+    color: rgb(255, 255, 255);
+  }
 `;
 
 const CategoryItem = ({ item }) => {

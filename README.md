@@ -13,6 +13,13 @@ FOOD and objects ----------
 
 https://unsplash.com/@imdauphong
 
+general
+https://unsplash.com/collections/75589301/bon-apetite
+
+https://unsplash.com/@ikredenets
+https://unsplash.com/photos/Jm_SqbqZYkY
+https://unsplash.com/photos/DHaZQh7hR2U
+
 https://unsplash.com/photos/xLS_W6RVx-8
 
 https://unsplash.com/@wendish
@@ -20,6 +27,9 @@ https://unsplash.com/@wendish
 https://unsplash.com/@stilclassics
 
 https://unsplash.com/@charlesdeluvio
+
+Christmas
+https://unsplash.com/@samhoajti
 
 
 PLACES ---------
@@ -29,6 +39,9 @@ https://unsplash.com/@spoelee4
 
 
 PEOPLE ---------
+
+https://unsplash.com/photos/BVJ5e-Z2zEk
+https://unsplash.com/photos/n3GxXpVcTpI
 
 https://unsplash.com/@raphaellovaski
 https://unsplash.com/photos/88IOcZz53eg
@@ -124,7 +137,7 @@ import React from "react";
 const Newsletter = () => {
   return (
     <div>
-      <h1>newsletetr</h1>
+      <h1>newsletter</h1>
     </div>
   );
 };
@@ -166,3 +179,48 @@ export default Home;
 
 <br>
 <br>
+
+### Add some components for the default form
+
+```javascript
+import React from "react";
+import styled from "styled-components";
+import { Send } from "@material-ui/icons";
+
+//
+//
+const Container = styled.div``;
+const Title = styled.div``;
+const Desc = styled.div``;
+//
+const InputContainer = styled.div``;
+const Input = styled.input``;
+const Button = styled.button``;
+
+const Newsletter = () => {
+  return (
+    <Container>
+      <Title>Newsletter</Title>
+
+      <Desc>Get timely updates from your favorite products.</Desc>
+
+      <InputContainer>
+        <Input placeholder="Your email" />
+        <Button>
+          <Send />
+        </Button>
+      </InputContainer>
+    </Container>
+  );
+};
+
+export default Newsletter;
+```
+
+<br>
+
+### Add some styles
+
+```javascript
+
+```
