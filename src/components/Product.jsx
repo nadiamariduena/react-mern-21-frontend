@@ -13,8 +13,15 @@ const Container = styled.div`
   margin: 5px;
   min-width: 280px;
   height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
-const Circle = styled.div``;
+const Circle = styled.div`
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+`;
 const Image = styled.img``;
 const Info = styled.div``;
 const Icon = styled.div``;
