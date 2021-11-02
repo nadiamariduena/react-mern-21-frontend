@@ -362,3 +362,5 @@ const CategoryItem = ({ item }) => {
 
 export default CategoryItem;
 ```
+
+[<img src="/src/img/categories2.gif"/>]()
