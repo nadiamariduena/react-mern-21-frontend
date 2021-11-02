@@ -10,19 +10,26 @@ import {
 //
 const Container = styled.div`
   flex: 1;
-  margin: 5px;
+  margin: 8px;
   min-width: 280px;
   height: 350px;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* add this to see where you are at */
+  border: 1px solid #000;
 `;
 const Circle = styled.div`
   width: 200px;
   height: 200px;
   border-radius: 50%;
 `;
-const Image = styled.img``;
+const Image = styled.img`
+  height: 75%;
+`;
 const Info = styled.div``;
 const Icon = styled.div``;
 

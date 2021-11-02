@@ -590,8 +590,93 @@ const Product = ({ item }) => {
 
 export default Product;
 ```
+
  <br>
 
- ### This is what we have until now
+### This is what we have until now
 
 [<img src="/src/img/products_1.gif"/>]()
+
+<br>
+<br>
+
+<br>
+
+### Lets continue adding the styles
+
+- Here we will be giving form to the img cards, using flex-box
+
+- Add also the flex-wrap to the **Products.jsx**
+
+```javascript
+import React from "react";
+import styled from "styled-components";
+import {
+  FavoriteBorderOutlined,
+  SearchOutlined,
+  ShoppingCartOutlined,
+} from "@material-ui/icons";
+
+//
+//
+const Container = styled.div`
+  flex: 1;
+  margin: 8px;
+  min-width: 280px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* add this to see where you are at */
+  border: 1px solid #000;
+`;
+const Circle = styled.div`
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+`;
+const Image = styled.img`
+  height: 75%;
+`;
+const Info = styled.div``;
+const Icon = styled.div``;
+
+//
+//
+
+const Product = ({ item }) => {
+  return (
+    <Container>
+      <Circle />
+      <Image src={item.img} />
+
+      <Info>
+        {/*  */}
+        <Icon>
+          <ShoppingCartOutlined />
+        </Icon>
+        {/*  */}
+        <Icon>
+          <SearchOutlined />
+        </Icon>
+        {/*  */}
+        <Icon>
+          <FavoriteBorderOutlined />
+        </Icon>
+      </Info>
+    </Container>
+  );
+};
+
+export default Product;
+```
+
+[<img src="/src/img/products_flexbox1.gif"/>]()
+
+<br>
+<br>
+
+#### I noticed one of the pictures has an issue, just replaced it with another image from the same object, after all this is just for testing.
