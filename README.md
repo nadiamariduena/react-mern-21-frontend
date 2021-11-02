@@ -194,7 +194,7 @@ export default CategoryItem;
 
 ## Now map. the item inside the data.js and pass them through <u>PROPS</u> to the CategoryItem.jsx, like so:
 
-> **<CategoryItem item={item} />**
+> **< CategoryItem item={item} / >**
 
 ```javascript
 //
