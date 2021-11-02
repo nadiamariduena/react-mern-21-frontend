@@ -16,22 +16,52 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  /* add this to see where you are at */
+  //you dont really need the color
+  background-color: #f3f0ec;
   border: 1px solid #000;
+  //related to info
+  position: relative;
 `;
 const Circle = styled.div`
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  background-color: #e0edf0;
+  position: absolute;
 `;
 const Image = styled.img`
   height: 75%;
+  z-index: 2;
 `;
-const Info = styled.div``;
-const Icon = styled.div``;
+
+//
+//
+// This is going to be a mask on top of the products
+const Info = styled.div`
+   width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #aaaaaa;
+  z-index: 3;
+  //to center the icons
+  display: flex;
+  justify-content: center;
+ align-items: center;
+`;
+const Icon = styled.div`
+   width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  //
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //
+ margin: 7px;
+`;
 
 //
 //
