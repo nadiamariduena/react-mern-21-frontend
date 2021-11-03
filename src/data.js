@@ -54,33 +54,41 @@ export const popularProducts = [
   {
     id: 1,
     img: "img-store-products/trinh-minh-th-MQOA0n3chA8-unsplash.jpg",
+    title: "flower0",
   },
   {
     id: 2,
     img: "img-store-products/trinh-minh-th-BFJBelj9GDM-unsplash.jpg",
+    title: "flower1",
   },
   {
     id: 3,
     img: "img-store-products/trinh-minh-th-Y3ORDf3E90I-unsplash.jpg",
+    title: "flower2",
   },
   {
     id: 4,
     img: "img-store-products/trinh-minh-th-ScYGyGhA9HQ-unsplash.jpg",
+    title: "flower3",
   },
   {
     id: 5,
     img: "img-store-products/trinh-minh-th-XezTntkSwnA-unsplash.jpg",
+    title: "flower4",
   },
   {
     id: 6,
     img: "img-store-products/trinh-minh-th-YakPphiBp4Q-unsplash.jpg",
+    title: "flower5",
   },
   {
     id: 7,
     img: "img-store-products/trinh-minh-th-W936fLTXmJA-unsplash.jpg",
+    title: "flower6",
   },
   {
     id: 8,
     img: "img-store-products/trinh-minh-th-gjB6CPpbnC8-unsplash.jpg",
+    title: "flower7",
   },
 ];

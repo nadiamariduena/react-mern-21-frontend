@@ -18,3 +18,12 @@
 ### AT the end of the project
 
 - See if you can add a **image reveal** (wrong akram), to the image inside the slider, check the performance as the slider already has a transition when sliding and the image reveal will make it more.
+
+<br>
+<br>
+
+# The announcement
+
+### The announcement discount is under the navbar, test at the end if it s better to put it above the navbar
+
+- dont forget the home.jsx has the navbar above and the other pages like product + productList has it below the navbar
