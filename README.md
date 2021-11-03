@@ -303,3 +303,128 @@ export default Newsletter;
 <br>
 
 # FOOTER
+
+#### Create the Footer component inside the components folder, then import it inside the Home.jsx
+
+<br>
+
+- While in the Footer.jsx , split the 4 default components between: Left, center, right
+
+```javascript
+import React from "react";
+import styled from "styled-components";
+
+const Container = styled.div``;
+const Left = styled.div``;
+const Center = styled.div``;
+const Right = styled.div``;
+
+const Footer = () => {
+  return (
+    <Container>
+      <h1>hello</h1>
+    </Container>
+  );
+};
+
+export default Footer;
+```
+
+<br>
+<br>
+
+## Use the colors props function to pass the color through props
+
+- These colors are temporary as they dont match with the color palette i am using for my project (it s your choice to keep them)
+
+<br>
+
+> **background-color: #${(props) => props.color};**
+
+ <br>
+
+```javascript
+import React from "react";
+import styled from "styled-components";
+import { Facebook, Instagram, Pinterest, Twitter } from "@material-ui/icons";
+
+//
+//
+
+const Container = styled.div`
+  display: flex;
+`;
+//
+//
+//
+const Left = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+`;
+//
+const Logo = styled.h1``;
+const Desc = styled.p`
+  margin: 20px 0;
+`;
+//
+//
+const SocialContainer = styled.div``;
+const SocialIcon = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  //
+  background-color: #${(props) => props.color};
+  /* background-color: white; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //
+  margin-right: 20px;
+`;
+
+//
+//
+//
+const Center = styled.div`
+  flex: 1;
+`;
+const Right = styled.div`
+  flex: 1;
+`;
+
+//
+//
+//
+<Container>
+  <Left>
+    <Logo>LAMA.</Logo>
+    <Desc>
+      There are many variations of passages of Lorem Ipsum available, but the
+      majority have suffered alteration in some form, by injected humour, or
+      randomised words which don’t look even slightly believable.
+    </Desc>
+    <SocialContainer>
+      <SocialIcon color="385999">
+        <Facebook />
+      </SocialIcon>
+      {/*  */}
+      <SocialIcon color="e440sf">
+        <Instagram />
+      </SocialIcon>
+      {/*  */}
+      <SocialIcon color="55acee">
+        <Twitter />
+      </SocialIcon>
+      {/*  */}
+      <SocialIcon color="e60023">
+        <Pinterest />
+      </SocialIcon>
+    </SocialContainer>
+  </Left>
+</Container>;
+```
+
+[<img src="/src/img/social-icons.jpg" />]()
