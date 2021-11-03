@@ -113,7 +113,7 @@ const Image = styled.img`
 
 # FILTER AND MAP
 
-#### If you dont want to use the images provided by the tutorial, and instead you want to use your images (situated in your public) you can do as I did.
+#### If you don't want to use the images provided by the tutorial, and instead you want to use your images (situated in your public) you can do as I did.
 
 - i will provide the default version of the tutorial and my version using filter and map
 
