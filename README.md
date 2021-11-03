@@ -280,15 +280,32 @@ import styled from "styled-components";
 //
 //
 
-const Container = styled.div``;
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*  */
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.2)
+    ), url("../img-store/raphael-lovaski-M41QIR3v3SA-unsplash.jpg") center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+`;
 
 //
 const Wrapper = styled.div`
   width: 40%;
-  padding: 20px;
+  padding: 30px 40px;
   background-color: white;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  /*  */
 `;
+//
 const Title = styled.h1`
   font-size: 24px;
   font-weight: 300;
@@ -320,21 +337,18 @@ const Button = styled.button`
   width: 40%;
   padding: 13px 20px;
   //background
-  color: #121212;
-  border: px solid #121212;
-  background-color: transparent;
+  border: 2px solid #121212;
+  color: rgb(248, 248, 248);
+  background-color: #121212;
 
   border-radius: 50px;
   cursor: pointer;
   font-weight: 500;
   transition: all 1s ease-in-out;
-  //
-  // ** Hover **
-  //
   &:hover {
-    border: 2px solid #121212;
-    color: rgb(248, 248, 248);
-    background-color: #121212;
+    color: #121212;
+    border: px solid #121212;
+    background-color: transparent;
   }
 `;
 //
@@ -408,6 +422,12 @@ const Container = styled.div`
 
  <br>
 
+[<img src="/src/img/register-default_form-ready.jpg" />]()
+
+<br>
+
+- Not sure White is the best choice but i will see at the end
+
  <br>
 
 ## The form is now ready, we can continue with the Login
@@ -415,3 +435,190 @@ const Container = styled.div`
  <br>
 
 #### Copy the following from the Register.jsx and paste it inside the Login.jsx
+
+```javascript
+<Container>
+  <Wrapper>
+    <Title>CREATE AN ACCOUNT</Title>
+    {/*  
+        
+        */}
+
+    <Form>
+      <Input placeholder="name" />
+      <Input placeholder="last name" />
+      <Input placeholder="username" />
+      <Input placeholder="email" />
+      <Input placeholder="password" />
+      <Input placeholder="confirm password" />
+      {/*  */}
+      <Agreement>
+        By creating an account, I consent to the processing of my personal data
+        in accordance with the <b>PRIVACY POLICY</b>
+      </Agreement>
+      <Button>CREATE</Button>
+    </Form>
+
+    {/*  
+        
+        */}
+  </Wrapper>
+</Container>
+```
+
+### Inside the Wrapper, replace the old register.jsx data with this:
+
+```javascript
+ <Title>SIGN IN</Title>
+        <Form>
+          <Input placeholder="username" />
+          <Input placeholder="password" />
+          <Button>LOGIN</Button>
+          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
+          <Link>CREATE A NEW ACCOUNT</Link>
+        </Form>
+
+          {/*
+
+          */}
+```
+
+ <br>
+
+### INSTEAD of importing the component to the home.jsx we will go to the App.js and replace the Home.jsx for the Register.jsx, i think its just to visualize what we do until a certain point
+
+<br>
+
+- AFTER THAT: it's going to be blank
+
+```javascript
+import React from "react";
+import Login from "./pages/Login";
+// import  Home  from "./pages/Home";
+
+const App = () => {
+  // return <Home />;
+  return <Login />;
+};
+
+export default App;
+```
+
+### At this point there its the same styles
+
+- I Modified it again, and i also added a couple of things that you need to add when using background images
+
+```javascript
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+```
+
+<br>
+
+```javascript
+import React from "react";
+
+import styled from "styled-components";
+
+//
+//
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*  */
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.2)
+    ), url("../img-store/soroush-golpoor-Z4N2c8ZNUQ0-unsplash.jpg") center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+`;
+
+//
+const Wrapper = styled.div`
+  width: 30%;
+  padding: 30px 40px;
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+`;
+
+const Title = styled.h1`
+  font-size: 1.7em;
+  font-weight: 300;
+  margin: 10px 0;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Input = styled.input`
+  flex: 1;
+  min-width: 40%;
+  margin: 7px 0;
+  padding: 10px;
+`;
+
+const Button = styled.button`
+  margin: 16px 0 15px 0;
+  width: 40%;
+  padding: 13px 20px;
+  //background
+  border: 1px solid #121212;
+  color: rgb(248, 248, 248);
+  background-color: #121212;
+
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 1s ease-in-out;
+  &:hover {
+    color: #121212;
+    border: 1px solid #121212;
+    background-color: transparent;
+  }
+`;
+//
+//
+
+const Link = styled.a`
+  margin: 3px 0px;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+`;
+//
+//
+
+const Login = () => {
+  return (
+    <Container>
+      <Wrapper>
+        <Title>SIGN IN</Title>
+        <Form>
+          <Input placeholder="username" />
+          <Input placeholder="password" />
+          <Button>LOGIN</Button>
+          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
+          <Link>CREATE A NEW ACCOUNT</Link>
+        </Form>
+
+        {/*  
+          
+          */}
+      </Wrapper>
+    </Container>
+  );
+};
+
+export default Login;
+```
+
+[<img src="/src/img/register_and_login__done.gif" />]()

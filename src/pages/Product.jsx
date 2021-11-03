@@ -127,7 +127,7 @@ const Button = styled.button`
   padding: 13px 20px;
   //background
   color: #121212;
-  border: 2px solid #121212;
+  border: 1px solid #121212;
   background-color: transparent;
 
   border-radius: 50px;
@@ -135,7 +135,7 @@ const Button = styled.button`
   font-weight: 500;
   transition: all 1s ease-in-out;
   &:hover {
-    border: 2px solid #121212;
+    border: 1px solid #121212;
     color: rgb(248, 248, 248);
     background-color: #121212;
   }

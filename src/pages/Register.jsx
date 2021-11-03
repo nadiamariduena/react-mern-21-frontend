@@ -24,9 +24,9 @@ const Container = styled.div`
 //
 const Wrapper = styled.div`
   width: 40%;
-  padding: 20px;
+  padding: 30px 40px;
   background-color: white;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: rgba(90, 114, 138, 0.2) 0px 8px 24px;
   /*  */
 `;
 //
@@ -61,18 +61,18 @@ const Button = styled.button`
   width: 40%;
   padding: 13px 20px;
   //background
-  color: #121212;
-  border: px solid #121212;
-  background-color: transparent;
+  border: 1px solid #121212;
+  color: rgb(248, 248, 248);
+  background-color: #121212;
 
   border-radius: 50px;
   cursor: pointer;
   font-weight: 500;
   transition: all 1s ease-in-out;
   &:hover {
-    border: 2px solid #121212;
-    color: rgb(248, 248, 248);
-    background-color: #121212;
+    color: #121212;
+    border: 1px solid #121212;
+    background-color: transparent;
   }
 `;
 //
