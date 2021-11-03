@@ -523,13 +523,14 @@ import styled from "styled-components";
 
 //
 //
+//
+//
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-
   /*  */
   background: linear-gradient(
       rgba(255, 255, 255, 0.2),
@@ -574,7 +575,6 @@ const Button = styled.button`
   border: 1px solid #121212;
   color: rgb(248, 248, 248);
   background-color: #121212;
-
   border-radius: 50px;
   cursor: pointer;
   font-weight: 500;
@@ -594,6 +594,8 @@ const Link = styled.a`
   text-decoration: underline;
   cursor: pointer;
 `;
+//
+//
 //
 //
 
