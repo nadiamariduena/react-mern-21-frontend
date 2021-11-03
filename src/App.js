@@ -1,10 +1,10 @@
 import React from "react";
-import ProductList from "./pages/ProductList";
+import Product from "./pages/Product";
 // import  Home  from "./pages/Home";
 
 const App = () => {
   // return <Home />;
-  return <ProductList />;
+  return <Product />;
 };
 
 export default App;
