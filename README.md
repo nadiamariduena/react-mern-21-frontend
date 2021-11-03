@@ -103,11 +103,11 @@ npm install @material-ui/core @material-ui/icons   react-router-dom node-sass@4.
 
  <br>
 
-- This is the continuation of **categories-and-products**
+- This is the continuation of **newsletter-footer**
 
 <br>
 
-[<img src="/src/img/categories_products_done.gif" />]()
+[<img src="/src/img/newsletter-footer__done.gif" />]()
 
 <br>
 <br>
@@ -123,118 +123,20 @@ npm install @material-ui/core @material-ui/icons   react-router-dom node-sass@4.
 <br>
 <br>
 
-# NEWSLETTER 🍯
+# CATEGORIES PAGE (ProductList.jsx) 🍯
 
 <br>
 
-### Start by Creating the Newsletter component
+### Start by Creating the ProductList.jsx page component (inside the pages folder)
 
 - type **rafce** to automatic create the component default
 
 ```javascript
 import React from "react";
-
-const Newsletter = () => {
-  return (
-    <div>
-      <h1>newsletter</h1>
-    </div>
-  );
-};
-
-export default Newsletter;
-```
-
- <br>
-
-### Now export the component inside the Home.jsx
-
-```javascript
-import React from "react";
-//
-//
-//
-import Announcement from "../components/Announcement";
-import Navbar from "../components/Navbar";
-import Slider from "../components/Slider";
-import Categories from "../components/Categories";
-import Products from "../components/Products";
-import Newsletter from "../components/Newsletter";
-
-const Home = () => {
-  return (
-    <div>
-      <Announcement />
-      <Navbar />
-      <Slider />
-      <Categories />
-      <Products />
-      <Newsletter />
-    </div>
-  );
-};
-
-export default Home;
-```
-
-<br>
-<br>
-
-### Add some components for the default form
-
-```javascript
-import React from "react";
 import styled from "styled-components";
-import { Send } from "@material-ui/icons";
 
-//
-//
-const Container = styled.div``;
-const Title = styled.div``;
-const Desc = styled.div``;
-//
-const InputContainer = styled.div``;
-const Input = styled.input``;
-const Button = styled.button``;
-
-const Newsletter = () => {
-  return (
-    <Container>
-      <Title>Newsletter</Title>
-
-      <Desc>Get timely updates from your favorite products.</Desc>
-
-      <InputContainer>
-        <Input placeholder="Your email" />
-        <Button>
-          <Send />
-        </Button>
-      </InputContainer>
-    </Container>
-  );
-};
-
-export default Newsletter;
-```
-
-<br>
-
-### Add some styles
-
-- I am not comfortable with the **newsletter** font so i will have to make some research
-
-```javascript
-import React from "react";
-import styled from "styled-components";
-import { Send } from "@material-ui/icons";
-
-//
 //
 const Container = styled.div`
-  /* margin-top: 100px;  between the newsletter and the products*/
-  height: 60vh;
-  /* border-top: 1px solid #000; */
-  background-color: #e7e5db;
   //
   display: flex;
   flex-direction: column;
@@ -242,84 +144,8 @@ const Container = styled.div`
   align-items: center;
   //
 `;
-const Title = styled.div`
-  font-size: 70px;
-  margin-bottom: 20px;
-  font-weight: 600;
-  font-family: "Raleway-SemiBold", sans-serif;
-`;
-const Desc = styled.div`
-  font-size: 24px;
-  font-weight: 300;
-  margin-bottom: 20px;
-`;
-//
-const InputContainer = styled.div`
-  width: 50%;
-  height: 40px;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid lightgray;
-`;
-const Input = styled.input`
-  border: none;
-  flex: 8;
-  padding-left: 20px;
-`;
-const Button = styled.button`
-  //flex: 1; will change the size of the button
-  flex: 1;
-  border: none;
-  background-color: white;
-  color: black;
-`;
 
-const Newsletter = () => {
-  return (
-    <Container>
-      <Title>Newsletter</Title>
-
-      <Desc>Get timely updates from your favorite products.</Desc>
-
-      <InputContainer>
-        <Input placeholder="Your email" />
-        <Button>
-          <Send />
-        </Button>
-      </InputContainer>
-    </Container>
-  );
-};
-
-export default Newsletter;
-```
-
-[<img src="/src/img/newsletter_default.gif" />]()
-
-<br>
-<br>
-<br>
-<br>
-
-# FOOTER
-
-#### Create the Footer component inside the components folder, then import it inside the Home.jsx
-
-<br>
-
-- While in the Footer.jsx , split the 4 default components between: Left, center, right
-
-```javascript
-import React from "react";
-import styled from "styled-components";
-
-const Container = styled.div``;
-const Left = styled.div``;
-const Center = styled.div``;
-const Right = styled.div``;
-
-const Footer = () => {
+const ProductList = () => {
   return (
     <Container>
       <h1>hello</h1>
@@ -327,293 +153,65 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default ProductList;
 ```
-
-<br>
-<br>
-
-## Use the colors props function to pass the color through props
-
-- These colors are temporary as they dont match with the color palette i am using for my project (it s your choice to keep them)
-
-<br>
-
-> **background-color: #${(props) => props.color};**
 
  <br>
 
+### INSTEAD of importing the component to the home.jsx we will go to the App.js and replace the Home.jsx for the ProductList.jsx, i think its just to visialize what we do until a certain point
+
+<br>
+
+- AFTER THAT it going to be blank
+
 ```javascript
 import React from "react";
-import styled from "styled-components";
-import { Facebook, Instagram, Pinterest, Twitter } from "@material-ui/icons";
+import ProductList from "./pages/ProductList";
+// import  Home  from "./pages/Home";
 
-//
-//
+const App = () => {
+  // return <Home />;
+  return <ProductList />;
+};
 
-const Container = styled.div`
-  display: flex;
-`;
-//
-//
-//
-const Left = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-`;
-//
-const Logo = styled.h1``;
-const Desc = styled.p`
-  margin: 20px 0;
-`;
-//
-//
-const SocialContainer = styled.div``;
-const SocialIcon = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  //
-  background-color: #${(props) => props.color};
-  /* background-color: white; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  //
-  margin-right: 20px;
-`;
-
-//
-//
-//
-const Center = styled.div`
-  flex: 1;
-`;
-const Right = styled.div`
-  flex: 1;
-`;
-
-//
-//
-//
-<Container>
-  <Left>
-    <Logo>LAMA.</Logo>
-    <Desc>
-      There are many variations of passages of Lorem Ipsum available, but the
-      majority have suffered alteration in some form, by injected humour, or
-      randomised words which don’t look even slightly believable.
-    </Desc>
-    <SocialContainer>
-      <SocialIcon color="385999">
-        <Facebook />
-      </SocialIcon>
-      {/*  */}
-      <SocialIcon color="e440sf">
-        <Instagram />
-      </SocialIcon>
-      {/*  */}
-      <SocialIcon color="55acee">
-        <Twitter />
-      </SocialIcon>
-      {/*  */}
-      <SocialIcon color="e60023">
-        <Pinterest />
-      </SocialIcon>
-    </SocialContainer>
-  </Left>
-</Container>;
+export default App;
 ```
 
-[<img src="/src/img/social-icons.jpg" />]()
-
-<br>
 <br>
 
-### Now lets finish the center and the right column
-
-- The icons for the payment options is just an image
-
-- the icons for the map/location, phone, email come from **material ui**
-
-<br>
-
-#### Result
-
-- The colors of the icons are terrible but you can change that if you want.
-
-[<img src="/src/img/social-icons1.jpg" />]()
-
-<br>
-<br>
-
-## Before continuing with the categories page (not the section), lets see what we have until now
+### Import all the component we just finished for the home page
 
 ```javascript
 import React from "react";
 import styled from "styled-components";
-import {
-  Facebook,
-  Instagram,
-  Pinterest,
-  Twitter,
-  MailOutline,
-  Phone,
-  Room,
-} from "@material-ui/icons";
+//
+import Navbar from "../components/Navbar";
+import Announcement from "../components/Announcement";
+import Products from "../components/Products";
+import Newsletter from "../components/Newsletter";
+import Footer from "../components/Footer";
 
 //
-//
-
 const Container = styled.div`
-  display: flex;
-`;
-//
-//
-//
-const Left = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-`;
-//
-const Logo = styled.h1``;
-const Desc = styled.p`
-  margin: 20px 0;
-`;
-//
-//
-const SocialContainer = styled.div`
-  display: flex;
-`;
-const SocialIcon = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #${(props) => props.color};
-  /* background-color: white; */
-  display: flex;
+  //
 
-  justify-content: center;
-  align-items: center;
-  margin-right: 20px;
+  //
 `;
 
-//
-//
-//
-const Center = styled.div`
-  flex: 1;
-  padding: 20px;
-`;
-
-const Title = styled.h3`
-  margin-bottom: 30px;
-`;
-
-const List = styled.ul`
-  margin: 0;
-  padding: 0;
-  list-style: none; //will remove the dot of the list
-  display: flex;
-  flex-wrap: wrap; //will position in column
-`;
-
-const ListItem = styled.li`
-  width: 50%;
-  margin-bottom: 10px;
-`;
-//
-//
-//
-
-const Right = styled.div`
-  flex: 1;
-  padding: 20px;
-`;
-const ContactItem = styled.div`
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-`;
-
-const Payment = styled.img`
-  width: 50%;
-`;
-
-//
-//
-//
-
-const Footer = () => {
+const ProductList = () => {
   return (
     <Container>
-      <Left>
-        <Logo>LAMA.</Logo>
-        <Desc>
-          There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don’t look even slightly believable.
-        </Desc>
-        <SocialContainer>
-          <SocialIcon color="385999">
-            <Facebook />
-          </SocialIcon>
-          {/*  */}
-          <SocialIcon color="E4405F">
-            <Instagram />
-          </SocialIcon>
-          {/*  */}
-          <SocialIcon color="55acee">
-            <Twitter />
-          </SocialIcon>
-          {/*  */}
-          <SocialIcon color="e60023">
-            <Pinterest />
-          </SocialIcon>
-        </SocialContainer>
-      </Left>
-      {/*  */}
-      <Center>
-        <Title>Useful Links</Title>
-        <List>
-          <ListItem>Home</ListItem>
-          <ListItem>Cart</ListItem>
-          <ListItem>Man Fashion</ListItem>
-          <ListItem>Woman Fashion</ListItem>
-          <ListItem>Accessories</ListItem>
-          <ListItem>My Account</ListItem>
-          <ListItem>Order Tracking</ListItem>
-          <ListItem>Wishlist</ListItem>
-          <ListItem>Wishlist</ListItem>
-          <ListItem>Terms</ListItem>
-        </List>
-      </Center>
-      {/*  */}
-      <Right>
-        <Title>Contact</Title>
-        <ContactItem>
-          <Room style={{ marginRight: "10px" }} /> 622 Dixie Path , South
-          Tobinchester 98336
-        </ContactItem>
-        <ContactItem>
-          <Phone style={{ marginRight: "10px" }} /> +1 234 56 78
-        </ContactItem>
-        <ContactItem>
-          <MailOutline style={{ marginRight: "10px" }} /> contact@lama.dev
-        </ContactItem>
-        <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
-      </Right>
+      <Navbar />
+      <Announcement />
+      <h1>hello</h1>
+      <Products />
+      <Newsletter />
+      <Footer />
     </Container>
   );
 };
 
-export default Footer;
+export default ProductList;
 ```
 
-<br>
-
-[<img src="/src/img/newsletter-footer__done.gif" />]()
+[<img src="/src/img/productlist_page.gif" />]()
