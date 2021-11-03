@@ -95,6 +95,9 @@ npm install @material-ui/core @material-ui/icons   react-router-dom node-sass@4.
 
  1 default-home-and-navbar
  2 announcement-slider
+ 3 categories-and-products
+ 4 newsletter-and-footer
+ 5 product-and-ProductList-page
  
  
   -->
@@ -152,4 +155,63 @@ const Login = () => {
 };
 
 export default Login;
+```
+
+ <br>
+
+### INSTEAD of importing the component to the home.jsx we will go to the App.js and replace the Home.jsx for the Register.jsx, i think its just to visualize what we do until a certain point
+
+<br>
+
+- AFTER THAT: it's going to be blank
+
+```javascript
+import React from "react";
+import Register from "./pages/Register";
+// import  Home  from "./pages/Home";
+
+const App = () => {
+  // return <Home />;
+  return <Register />;
+};
+
+export default App;
+```
+
+<br>
+
+### START adding the first components
+
+```javascript
+import React from "react";
+import styled from "styled-components";
+//
+//
+
+const Container = styled.div``;
+
+//
+const Wrapper = styled.div`
+  width: 40%;
+  padding: 20px;
+  background-color: white;
+`;
+const Title = styled.h1`
+  font-size: 24px;
+  font-weight: 300;
+`;
+
+//
+//
+const Register = () => {
+  return (
+    <Container>
+      <Wrapper>
+        <Title>CREATE AN ACCOUNT</Title>
+      </Wrapper>
+    </Container>
+  );
+};
+
+export default Register;
 ```
