@@ -4,6 +4,8 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 //
+//
+// IMage
 import { popularProducts } from "../data";
 
 //
@@ -47,6 +49,53 @@ const Price = styled.span`
 
 //
 //
+//
+//
+//
+const FilterContainer = styled.div`
+  width: 50%;
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Filter = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+//
+// the title 'color'
+const FilterTitle = styled.span`
+  font-size: 20px;
+  font-weight: 200;
+  margin: 0px 10px 0 0px;
+`;
+
+// the circles with the colors
+const FilterColor = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color};
+  margin: 0px 5px;
+  cursor: pointer;
+`;
+
+const FilterSize = styled.select`
+  margin-left: 10px;
+  padding: 5px;
+  border: none;
+  background-color: #ffffff6a;
+`;
+
+const FilterSizeOption = styled.option``;
+
+//
+//
+
+//
+//
 
 const Product = () => {
   return (
@@ -71,6 +120,33 @@ const Product = () => {
             condimentum ac, volutpat ornare.
           </Desc>
           <Price>$ 128</Price>
+          {/* 
+
+*/}
+          <FilterContainer>
+            <Filter>
+              <FilterTitle>Color</FilterTitle>
+              <FilterColor color="white" />
+              <FilterColor color="#85390e " />
+              <FilterColor color="#BEBAB0" />
+            </Filter>
+            <Filter>
+              <FilterTitle>Size</FilterTitle>
+              <FilterSize>
+                <FilterSizeOption>XS</FilterSizeOption>
+                <FilterSizeOption>S</FilterSizeOption>
+                <FilterSizeOption>M</FilterSizeOption>
+                <FilterSizeOption>L</FilterSizeOption>
+                <FilterSizeOption>XL</FilterSizeOption>
+              </FilterSize>
+            </Filter>
+          </FilterContainer>
+
+          {/*  */}
+
+          {/*  
+          
+          */}
         </InfoContainer>
       </Wrapper>
 
