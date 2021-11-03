@@ -4,12 +4,14 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 //
+import { Add, Remove } from "@material-ui/icons";
+import styled from "styled-components";
 //
 // IMage
 import { popularProducts } from "../data";
 
 //
-import styled from "styled-components";
+
 //
 const Container = styled.div``;
 
@@ -51,6 +53,7 @@ const Price = styled.span`
 //
 //
 //
+//          **    option color  ***
 //
 const FilterContainer = styled.div`
   width: 50%;
@@ -93,7 +96,50 @@ const FilterSizeOption = styled.option``;
 
 //
 //
+//            **    BUTTONS   ***
+//
+const AddContainer = styled.div`
+  width: 50%;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
+const AmountContainer = styled.div`
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+`;
+
+const Amount = styled.span`
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: 0.5px dotted black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 5px;
+`;
+
+const Button = styled.button`
+  padding: 13px 20px;
+  //background
+  color: #121212;
+  border: 2px solid #121212;
+  background-color: transparent;
+
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 1s ease-in-out;
+  &:hover {
+    border: 2px solid #121212;
+    color: rgb(248, 248, 248);
+    background-color: #121212;
+  }
+`;
 //
 //
 
@@ -143,7 +189,14 @@ const Product = () => {
           </FilterContainer>
 
           {/*  */}
-
+          <AddContainer>
+            <AmountContainer>
+              <Remove />
+              <Amount>1</Amount>
+              <Add />
+            </AmountContainer>
+            <Button>ADD TO CART</Button>
+          </AddContainer>
           {/*  
           
           */}
