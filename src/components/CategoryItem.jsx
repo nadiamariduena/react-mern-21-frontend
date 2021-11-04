@@ -1,5 +1,5 @@
 import React from "react";
-
+import { mobile } from "../responsive";
 //
 import styled from "styled-components";
 
@@ -18,6 +18,8 @@ const Image = styled.img`
   aspect-ratio: 1;
   //
   //
+  /* ${mobile({ height: "20vh" })} */
+
   //
 `;
 const Info = styled.div`

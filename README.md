@@ -319,8 +319,6 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1300px)
 
 ### Back to the code
 
- 
-
 #### Right now i will be using the one from the video and later on i will see how the project develops so to adapt it to more devices(like tablet for example)
 
 ## Lets continue:
@@ -365,7 +363,6 @@ const Container = styled.div`
 
 #### As you can see in the img, as long as we dont reach the 'breakpoint' which is <u>380px</u> the red color will show, but from the moment we go after the 380 it will change to our desktop version color which is #edebe4;
 
-
 <br>
 <br>
 
@@ -381,14 +378,11 @@ const Container = styled.div`
 
 ### 2. Put the register button on the bottom (bad user experience)
 
-
-
 <br>
 <br>
 <br>
 
-
-### The code for the navbar mobile 
+### The code for the navbar mobile
 
 ```javascript
 import React from "react";
@@ -525,15 +519,14 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
 ```
 
 #### As you can notice, below 370 or something it starts to be a bit too tight, then after 380 its ugly again, of course you can spend time changing each device but the best would be to implement the dropdown or similar.
 
-
-
-
 [<img src="/src/img/responsive_breakpoint_2.gif" />]()
+
+ <br>
+ <br>
 
 ### Dropdown options:
 
@@ -541,9 +534,306 @@ export default Navbar;
 
 <br>
 
-
 [animated dropdown](https://codesandbox.io/s/framer-motion-side-menu-mx2rw?from-embed)
 
 [Animated Responsive Navbar Tutorial](https://www.youtube.com/watch?v=H4MkGzoACpQ)
 
 [https://www.telerik.com/blogs/quick-guide-dropdown-menus-react](https://www.telerik.com/blogs/quick-guide-dropdown-menus-react)
+
+<br>
+<br>
+<hr>
+<br>
+
+## SLIDER (mobile)
+
+- We are going to remove the slider from the mobile version
+
+```javascript
+import { mobile } from "../responsive";
+//
+//
+
+const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  /* height: calc(100vh - 12.2vh); */
+  /* height: calc(100vh - 43px); */
+
+  display: flex;
+  //background: #f09819; /* fallback for old browsers */
+  //background: -webkit-linear-gradient(
+  /*  to right,
+    #edde5d,
+    #f09819
+  );  Chrome 10-25, Safari 5.1-6 */
+  /*  background: linear-gradient(
+    to right,
+    #edde5d,
+    #f09819
+  );  W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  //
+  //
+  position: relative;
+  ${mobile({ display: "none" })}
+`;
+```
+
+<br>
+<br>
+
+## Categories
+
+```javascript
+import { mobile } from "../responsive";
+
+//
+//
+const Container = styled.div`
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  ${mobile({ padding: "0px", flexDirection: "column" })}
+`;
+//
+//
+```
+
+<br>
+<br>
+
+## CategoryItems
+
+- Here i didnt use the height: "20vh" because i didnt like the behavior so i avoided it.
+
+<br>
+
+```javascript
+import React from "react";
+import { mobile } from "../responsive";
+//
+import styled from "styled-components";
+
+//
+//
+const Container = styled.div`
+  flex: 1;
+  margin: 3px;
+  height: 70vh;
+  position: relative;
+`;
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1;
+  //
+  //
+  /* ${mobile({ height: "20vh" })} */
+
+  //
+`;
+
+<br>
+<br>
+
+
+### The app.js
+
+```javascript
+import React from "react";
+// import Cart from "./pages/Cart";
+//
+//
+//
+// import Announcement from "./components/Announcement";
+import Navbar from "./components/Navbar";
+import Slider from "./components/Slider";
+import Categories from "./components/Categories";
+import Products from "./components/Products";
+import Newsletter from "./components/Newsletter";
+import Footer from "./components/Footer";
+
+//
+//
+
+const App = () => {
+  return (
+    <>
+      <Navbar />
+      <Slider />
+      <Categories />
+      <Products />
+      <Newsletter />
+      <Footer />
+    </>
+  );
+};
+
+export default App;
+
+```
+
+
+
+<br>
+<br>
+
+## NEWSLETTER
+
+```javascript
+import React from "react";
+import styled from "styled-components";
+import { Send } from "@material-ui/icons";
+import { mobile } from "../responsive";
+//
+//
+const Container = styled.div`
+  /* margin-top: 100px;  between the newsletter and the products*/
+  height: 60vh;
+  /* border-top: 1px solid #000; */
+  background-color: #e7e5db;
+  //
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  //
+`;
+const Title = styled.div`
+  font-size: 4.8em;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-family: "Raleway-SemiBold", sans-serif;
+  ${mobile({ fontSize: "2.7em" })}
+`;
+const Desc = styled.div`
+  font-size: 1.5em;
+  font-weight: 300;
+  margin-bottom: 20px;
+  ${mobile({ textAlign: "center", fontSize: "1.1em", lineHeight: "1.4em" })}
+`;
+//
+const InputContainer = styled.div`
+  width: 50%;
+  height: 40px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid lightgray;
+  ${mobile({ width: "80%" })}
+`;
+```
+
+<br>
+<br>
+<br>
+<br>
+
+
+### FOOTER
+
+- Removing the center is a question of choice, i decided to let it as it s now, I also didnt add the background color const **Right**
+
+```javascript
+import React from "react";
+import styled from "styled-components";
+import {
+  Facebook,
+  Instagram,
+  Pinterest,
+  Twitter,
+  MailOutline,
+  Phone,
+  Room,
+} from "@material-ui/icons";
+
+//
+import { mobile } from "../responsive";
+//
+
+const Container = styled.div`
+  display: flex;
+  margin-top: 40px;
+  ${mobile({ flexDirection: "column" })}
+`;
+//
+//
+//
+const Left = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+`;
+//
+const Logo = styled.h1``;
+const Desc = styled.p`
+  margin: 20px 0;
+`;
+//
+//
+const SocialContainer = styled.div`
+  display: flex;
+`;
+const SocialIcon = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* background-color: #${(props) => props.color}; */
+  /* background-color: white; */
+  color: black;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+`;
+
+//
+//
+//
+const Center = styled.div`
+  flex: 1;
+  padding: 20px;
+  /* ${mobile({ display: "none" })} */
+`;
+
+const Title = styled.h3`
+  margin-bottom: 30px;
+`;
+
+const List = styled.ul`
+  margin: 0;
+  padding: 0;
+  list-style: none; //will remove the dot of the list
+  display: flex;
+  flex-wrap: wrap; //will position in column
+`;
+
+const ListItem = styled.li`
+  width: 50%;
+  margin-bottom: 10px;
+`;
+//
+//
+//
+
+const Right = styled.div`
+  flex: 1;
+  padding: 20px;
+  /* ${mobile({ backgroundColor: "#fff8f8" })} */
+`;
+const ContactItem = styled.div`
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+`;
+
+const Payment = styled.img`
+  width: 50%;
+`;
+
+//
+```
