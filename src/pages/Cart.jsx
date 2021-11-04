@@ -8,6 +8,8 @@ import Navbar from "../components/Navbar";
 import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
 //
+// IMage
+import { popularProducts } from "../data";
 //
 const Container = styled.div``;
 //
@@ -104,10 +106,14 @@ const ProductDetail = styled.div`
   display: flex;
 `;
 
-const Image = styled.img`
+const ImgContainer = styled.div`
   width: 200px;
 `;
 //
+const Image = styled.img`
+  width: 100%;
+  object-fit: cover;
+`;
 //
 //
 //
@@ -208,7 +214,7 @@ const SummaryItemText = styled.span``;
 const SummaryItemPrice = styled.span``;
 
 const Button = styled.button`
-margin: 10px 10px 0 0;
+  margin: 10px 10px 0 0;
   width: 50%;
   padding: 10px;
   color: #121212;
@@ -262,7 +268,13 @@ const Cart = () => {
           <Info>
             <Product>
               <ProductDetail>
-                <Image src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A" />
+                <ImgContainer>
+                  {popularProducts
+                    .filter((item) => item.title === "flower6")
+                    .map((item) => (
+                      <Image src={item.img} />
+                    ))}
+                </ImgContainer>{" "}
                 <Details>
                   <ProductName>
                     <b>Product:</b> JESSIE THUNDER SHOES
@@ -298,7 +310,13 @@ const Cart = () => {
 
             <Product>
               <ProductDetail>
-                <Image src="https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png" />
+                <ImgContainer>
+                  {popularProducts
+                    .filter((item) => item.title === "flower2")
+                    .map((item) => (
+                      <Image src={item.img} />
+                    ))}
+                </ImgContainer>{" "}
                 <Details>
                   <ProductName>
                     <b>Product:</b> HAKURA T-SHIRT
