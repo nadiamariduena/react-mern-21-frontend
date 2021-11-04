@@ -70,6 +70,24 @@ const TopText = styled.span`
 `;
 //
 //
+const Bottom = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+//
+const Info = styled.div`
+  flex: 3;
+`;
+//
+const Summary = styled.div`
+  flex: 1;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
+  height: 50vh;
+`;
+
+//
 const Cart = () => {
   return (
     <Container>
@@ -92,6 +110,20 @@ const Cart = () => {
             CHECKOUT NOW
           </TopButton>
         </Top>
+        {/* 
+
+
+*/}
+
+        <Bottom>
+          <Info>
+            <Summary></Summary>
+          </Info>
+        </Bottom>
+
+        {/* 
+
+*/}
       </Wrapper>
       {/* 
     
