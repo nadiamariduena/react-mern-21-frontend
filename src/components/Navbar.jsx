@@ -2,7 +2,7 @@ import React from "react";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
 import styled from "styled-components";
-import { mobile } from "../responsive";
+import { mobile, mobileM, tablet } from "../responsive";
 // hook related to basket icon
 import useStyles from "./styles";
 //
@@ -15,13 +15,15 @@ const Container = styled.div`
   ${mobile({ height: "50px" })}
 `;
 
-//
+//mobileM
 const Wrapper = styled.div`
   padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   ${mobile({ padding: "10px 0px" })}
+  ${mobileM({ padding: "10px 0px" })}
+  ${tablet({ padding: "10px 0px" })}
 `;
 // ----------------------
 
@@ -39,6 +41,8 @@ const Language = styled.span`
   font-size: 14px;
   cursor: pointer;
   ${mobile({ display: "none" })}
+  ${mobileM({ display: "none" })}
+  ${tablet({  display: "none" })}
 `;
 //
 const SearchContainer = styled.div`
@@ -48,11 +52,15 @@ const SearchContainer = styled.div`
   margin-left: 25px;
   padding: 5px;
   ${mobile({ marginLeft: "5px" })}
+  ${mobileM({ marginLeft: "5px" })}
 `;
 const Input = styled.input`
   border: none;
 
   ${mobile({ width: "40px", fontSize: "0.8em", fontFamily: "Rajdhani-Light" })}
+  ${mobileM({ width: "50px", fontSize: "0.8em", fontFamily: "Rajdhani-Light" })}
+  ${tablet({   fontSize: "0.8em", fontFamily: "Rajdhani-Light" })}
+
 `;
 //
 // ----------------------
@@ -72,6 +80,8 @@ const Logo = styled.h1`
   font-family: "Syncopate-Bold";
   letter-spacing: 15px;
   ${mobile({ fontSize: "1.3em", letterSpacing: "5px" })}
+  ${mobileM({ fontSize: "1.3em", letterSpacing: "5px" })}
+
 `;
 //
 //
@@ -86,6 +96,8 @@ const Right = styled.div`
   justify-content: flex-end;
   // border: 1px solid #000;
   ${mobile({ flex: 2, justifyContent: "center" })}
+  ${mobileM({ flex: 2, justifyContent: "center" })}
+
 `;
 //
 //
@@ -94,6 +106,8 @@ const MenuItem = styled.div`
   cursor: pointer;
   margin: 0 20px 0 10px;
   ${mobile({ fontSize: "0.8em", marginLeft: "10px", marginRight: "0" })}
+  ${mobileM({ fontSize: "0.8em", marginLeft: "10px", marginRight: "0" })}
+
 `;
 
 //

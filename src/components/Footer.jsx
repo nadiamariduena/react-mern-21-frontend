@@ -11,13 +11,15 @@ import {
 } from "@material-ui/icons";
 
 //
-import { mobile } from "../responsive";
+import { mobile, mobileM, tablet } from "../responsive";
 //
 
 const Container = styled.div`
   display: flex;
   margin-top: 40px;
   ${mobile({ flexDirection: "column" })}
+  ${mobileM({ flexDirection: "column" })}
+  ${tablet({ flexDirection: "column" })}
 `;
 //
 //

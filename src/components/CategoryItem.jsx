@@ -1,6 +1,5 @@
 import React from "react";
-import { mobile } from "../responsive";
-//
+// dont add queries inside the image, as it makes them ugly
 import styled from "styled-components";
 
 //
@@ -17,9 +16,6 @@ const Image = styled.img`
   object-fit: cover;
   aspect-ratio: 1;
   //
-  //
-  /* ${mobile({ height: "20vh" })} */
-
   //
 `;
 const Info = styled.div`

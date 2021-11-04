@@ -199,6 +199,8 @@ export const mobile = (props) => {
 
 <br>
 
+#### [How to use media queries with styled components](https://jsramblings.com/how-to-use-media-queries-with-styled-components/)
+
 - But if you want to have more choices , like lets say you want a different style of a button or a box in the tablet, you can add for example:
 
 ```javascript
@@ -239,7 +241,28 @@ another option
     @media only screen and (min-width : 1200px) {
 
     }
+
+
+/*
+
+
+another option
+
+*/
+
+
+  // Phone
+only screen and (max-width:320px)
+// Tablet
+only screen and (min-width:321px) and (max-width:768px)
+
+// Desktop
+only screen and (min-width:769px)
 ```
+
+<br>
+
+#### [Media Queries For Mobile, Laptop, Desktop And iPad For Making Responsive Website Design](https://www.c-sharpcorner.com/UploadFile/44b888/media-queries-for-mobile-laptop-desktop-and-i-pad-for-maki/)
 
 <br>
 
@@ -307,10 +330,7 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1300px)
 
 }
 ```
-
-#### [READ MORE | Media Queries: How to target desktop, tablet, and mobile? ](https://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile)
-
-<br>
+ 
 <br>
 <br>
 <br>
@@ -609,7 +629,7 @@ const Container = styled.div`
 
 <br>
 
-```javascript
+````javascript
 import React from "react";
 import { mobile } from "../responsive";
 //
@@ -673,9 +693,7 @@ const App = () => {
 
 export default App;
 
-```
-
-
+````
 
 <br>
 <br>
@@ -730,7 +748,6 @@ const InputContainer = styled.div`
 <br>
 <br>
 <br>
-
 
 ### FOOTER
 
@@ -837,3 +854,7 @@ const Payment = styled.img`
 
 //
 ```
+
+[<img src="/src/img/responsive_breakpoint_3.gif" />]()
+
+

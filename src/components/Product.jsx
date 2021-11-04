@@ -5,6 +5,8 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
+//
+//
 
 //
 // This is going to be a mask on top of the products

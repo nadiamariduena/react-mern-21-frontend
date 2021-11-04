@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
-import { mobile } from "../responsive";
+import { mobile, mobileM, tablet, laptop } from "../responsive";
 import styled from "styled-components";
 //
 import { sliderItems } from "../data";
@@ -21,16 +21,19 @@ const Container = styled.div`
     #edde5d,
     #f09819
   );  Chrome 10-25, Safari 5.1-6 */
-/*  background: linear-gradient(
+  /*  background: linear-gradient(
     to right,
     #edde5d,
     #f09819
   );  W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   //
-  //
+  //mobileM
   position: relative;
   ${mobile({ display: "none" })}
+  ${mobileM({ display: "none" })}
+  ${tablet({ display: "none" })}
+  ${laptop({ display: "none" })}
 `;
 //
 // Arrows
@@ -57,7 +60,6 @@ const Arrow = styled.div`
   cursor: pointer;
   //
   z-index: 2;
-
 `;
 
 //
