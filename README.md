@@ -336,7 +336,7 @@ const TopButton = styled.button`
 <br>
 <br>
 
-## THE FOLLOWING is going to mimic (the cart) when the client is ready to pay, mimic because once we will have the backend it will be made depending of what the client had clicked on and not this.
+## THE FOLLOWING is going to mimic (the cart) when the client is ready to pay, mimic because once we will have the backend it will be made depending of what the client had put in the basket/cart
 
 - lets add the first block of components
 
@@ -402,7 +402,9 @@ const TopButton = styled.button`
 
   //
 `;
-
+//
+//
+//Shopping Bag(2)
 const TopTexts = styled.div``;
 const TopText = styled.span`
   text-decoration: underline;
@@ -457,9 +459,8 @@ const Cart = () => {
 */}
 
         <Bottom>
-          <Info>
-            <Summary></Summary>
-          </Info>
+          <Info></Info>
+          <Summary></Summary>
         </Bottom>
 
         {/* 
@@ -474,3 +475,291 @@ const Cart = () => {
   );
 };
 ```
+
+[<img src="/src/img/styles_checkout-default.gif" />]()
+
+<br>
+<br>
+
+## Mimic a product in the cart 0
+
+- later on, i will be mapping m yown images inside the data.js, but for now we will be using the original img of the project.
+
+```javascript
+const Info = styled.div`
+  flex: 3;
+`;
+
+//
+//
+//
+// PRODUCT / PRODUCT-DETAIL  /IMG
+//
+//
+const Product = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const ProductDetail = styled.div`
+  flex: 2;
+  display: flex;
+`;
+const Image = styled.img`
+  width: 200px;
+`;
+//
+//
+//
+const Summary = styled.div``;
+//
+//
+//
+//
+//
+//
+<Product>
+  <ProductDetail>
+    <Image src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A" />
+  </ProductDetail>
+</Product>;
+```
+
+[<img src="/src/img/styles_checkout-default1.gif" />]()
+
+## Mimic a product in the cart 1
+
+- At this point i am just going to to add it step by step,because it can be confusing (due to the size of the data inside the Cart/checkout)
+
+```javascript
+//
+//
+//
+// DETAILS / PRDUCT NAME, ID, COLOR, SIZE
+//
+//
+const Details = styled.div`
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+const ProductName = styled.span``;
+const ProductId = styled.span``;
+const ProductColor = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color};
+`;
+const ProductSize = styled.span``;
+
+//
+//
+//
+//
+const Summary = styled.div``;
+
+//
+//
+//
+//
+//
+//
+//
+//
+<Bottom>
+  <Info>
+    <Product>
+      <ProductDetail>
+        <Image src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A" />
+        <Details>
+          <ProductName>
+            <b>Product:</b> JESSIE THUNDER SHOES
+          </ProductName>
+          <ProductId>
+            <b>ID:</b> 93813718293
+          </ProductId>
+          <ProductColor color="black" />
+          <ProductSize>
+            <b>Size:</b> 37.5
+          </ProductSize>
+        </Details>
+      </ProductDetail>
+      {/*  */}
+      {/* <PriceDetail></PriceDetail> */}
+      {/*  */}
+    </Product>
+  </Info>
+  <Summary></Summary>
+</Bottom>;
+```
+
+[<img src="/src/img/styles_checkout-default2.gif" />]()
+
+<br>
+<br>
+
+## Mimic a product in the cart 3
+
+- PRICE DETAIL / PRODUCT AMOUNT, PRICE
+
+```javascript
+//
+//
+//
+// PRICE DETAIL / PRODUCT AMOUNT, PRICE
+//
+//
+
+const PriceDetail = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ProductAmountContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
+const ProductAmount = styled.div`
+  font-size: 24px;
+  margin: 5px;
+`;
+
+const ProductPrice = styled.div`
+  font-size: 30px;
+  font-weight: 200;
+`;
+
+//
+
+//
+const Summary = styled.div``;
+//
+//
+//
+//
+//
+<Bottom>
+  <Info>
+    <Product>
+      <ProductDetail>
+        <Image src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A" />
+        <Details>
+          <ProductName>
+            <b>Product:</b> JESSIE THUNDER SHOES
+          </ProductName>
+          <ProductId>
+            <b>ID:</b> 93813718293
+          </ProductId>
+          <ProductColor color="black" />
+          <ProductSize>
+            <b>Size:</b> 37.5
+          </ProductSize>
+        </Details>
+      </ProductDetail>
+      {/*  */}
+      <PriceDetail>
+        <ProductAmountContainer>
+          <Add />
+          <ProductAmount>2</ProductAmount>
+          <Remove />
+        </ProductAmountContainer>
+        <ProductPrice>$ 30</ProductPrice>
+      </PriceDetail>
+      {/*  */}
+    </Product>
+  </Info>
+  <Summary></Summary>
+</Bottom>;
+```
+[<img src="/src/img/styles_checkout-default3.gif" />]()
+
+<br>
+<br>
+<br>
+
+## Mimic a product in the cart 3
+
+- PRICE DETAIL / PRODUCT AMOUNT, PRICE
+
+```javascript
+//
+//
+//
+// PRICE DETAIL / PRODUCT AMOUNT, PRICE
+//
+//
+
+const PriceDetail = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ProductAmountContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
+const ProductAmount = styled.div`
+  font-size: 24px;
+  margin: 5px;
+`;
+
+const ProductPrice = styled.div`
+  font-size: 30px;
+  font-weight: 200;
+`;
+
+//
+
+//
+const Summary = styled.div``;
+//
+//
+//
+//
+//
+<Bottom>
+  <Info>
+    <Product>
+      <ProductDetail>
+        <Image src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A" />
+        <Details>
+          <ProductName>
+            <b>Product:</b> JESSIE THUNDER SHOES
+          </ProductName>
+          <ProductId>
+            <b>ID:</b> 93813718293
+          </ProductId>
+          <ProductColor color="black" />
+          <ProductSize>
+            <b>Size:</b> 37.5
+          </ProductSize>
+        </Details>
+      </ProductDetail>
+      {/*  */}
+      <PriceDetail>
+        <ProductAmountContainer>
+          <Add />
+          <ProductAmount>2</ProductAmount>
+          <Remove />
+        </ProductAmountContainer>
+        <ProductPrice>$ 30</ProductPrice>
+      </PriceDetail>
+      {/*  */}
+    </Product>
+  </Info>
+  <Summary></Summary>
+</Bottom>;
+```
+[<img src="/src/img/styles_checkout-default4.gif" />]()
