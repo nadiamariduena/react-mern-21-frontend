@@ -330,7 +330,7 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1300px)
 
 }
 ```
- 
+
 <br>
 <br>
 <br>
@@ -857,4 +857,88 @@ const Payment = styled.img`
 
 [<img src="/src/img/responsive_breakpoint_3.gif" />]()
 
+<br>
 
+### And the Announcement
+
+```javascript
+import React from "react";
+import { mobile, mobileM, tablet } from "../responsive";
+import styled from "styled-components";
+
+//
+//
+
+const Container = styled.div`
+  height: 5vh;
+  background-color: #121212;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: "Poppins-light";
+  color: rgb(248, 248, 248);
+  ${mobile({ fontSize: "0.8em" })}
+  ${mobileM({ fontSize: "0.9em" })}
+  ${tablet({ fontSize: "1.1em" })}
+`;
+
+//
+
+const Announcement = () => {
+  return <Container>Super Deal! Freee Shipping on Orders Over $50</Container>;
+};
+
+export default Announcement;
+```
+
+<br>
+<br>
+<hr>
+<br>
+<br>
+<br>
+
+# THE PAGES
+
+### 1. the Cart
+
+- Again, go to the app and **To visualize the changes**, add the component you will work on, in this case the Cart.jsx.
+
+- ADD the nav to the render
+
+```javascript
+import React from "react";
+// import Cart from "./pages/Cart";
+//
+//
+//HOME and its components
+import Announcement from "./components/Announcement";
+import Navbar from "./components/Navbar";
+import Slider from "./components/Slider";
+import Categories from "./components/Categories";
+import Products from "./components/Products";
+import Newsletter from "./components/Newsletter";
+import Footer from "./components/Footer";
+//
+//---------------------
+
+//PAGES
+
+import Cart from "./pages/Cart";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Product from "./pages/Product";
+import ProductList from "./pages/ProductList";
+
+//
+//
+
+const App = () => {
+  return <Navbar />;
+};
+
+export default App;
+```

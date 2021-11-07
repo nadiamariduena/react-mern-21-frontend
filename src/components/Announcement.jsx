@@ -1,11 +1,12 @@
 import React from "react";
+import { mobile, mobileM, tablet } from "../responsive";
 import styled from "styled-components";
 
 //
 //
 
 const Container = styled.div`
-  height: 30px;
+  height: 5vh;
   background-color: #121212;
   color: white;
   display: flex;
@@ -15,6 +16,9 @@ const Container = styled.div`
   font-weight: 500;
   font-family: "Poppins-light";
   color: rgb(248, 248, 248);
+  ${mobile({ fontSize: "0.8em" })}
+  ${mobileM({ fontSize: "0.9em" })}
+  ${tablet({ fontSize: "1.1em" })}
 `;
 
 //
