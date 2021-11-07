@@ -42,7 +42,7 @@ const Language = styled.span`
   cursor: pointer;
   ${mobile({ display: "none" })}
   ${mobileM({ display: "none" })}
-  ${tablet({  display: "none" })}
+  ${tablet({ display: "none" })}
 `;
 //
 const SearchContainer = styled.div`
@@ -59,8 +59,7 @@ const Input = styled.input`
 
   ${mobile({ width: "40px", fontSize: "0.8em", fontFamily: "Rajdhani-Light" })}
   ${mobileM({ width: "50px", fontSize: "0.8em", fontFamily: "Rajdhani-Light" })}
-  ${tablet({   fontSize: "0.8em", fontFamily: "Rajdhani-Light" })}
-
+  ${tablet({ fontSize: "0.8em", fontFamily: "Rajdhani-Light" })}
 `;
 //
 // ----------------------
@@ -79,9 +78,13 @@ const Logo = styled.h1`
   font-weight: bold;
   font-family: "Syncopate-Bold";
   letter-spacing: 15px;
+  -webkit-letter-spacing: 5px;
+  -moz-letter-spacing: 5px;
+  -ms-letter-spacing: 5px;
+
+  /*  */
   ${mobile({ fontSize: "1.3em", letterSpacing: "5px" })}
   ${mobileM({ fontSize: "1.3em", letterSpacing: "5px" })}
-
 `;
 //
 //
@@ -97,7 +100,6 @@ const Right = styled.div`
   // border: 1px solid #000;
   ${mobile({ flex: 2, justifyContent: "center" })}
   ${mobileM({ flex: 2, justifyContent: "center" })}
-
 `;
 //
 //
@@ -107,7 +109,6 @@ const MenuItem = styled.div`
   margin: 0 20px 0 10px;
   ${mobile({ fontSize: "0.8em", marginLeft: "10px", marginRight: "0" })}
   ${mobileM({ fontSize: "0.8em", marginLeft: "10px", marginRight: "0" })}
-
 `;
 
 //

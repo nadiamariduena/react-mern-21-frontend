@@ -10,13 +10,17 @@
 *::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+
   text-decoration: none;
   list-style: none;
   outline: none;
   font-family: "Poppins-medium";
+
   // CURSOR DEFAULT NONE
   // cursor: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* ---------BAR STYLES------- */
@@ -38,7 +42,7 @@ body::-webkit-scrollbar-thumb {
 /* ---------BAR STYLES------- */
 
 body {
-  overflow-x: hidden;
+  // overflow-x: hidden;
   // background-color: rgb(248, 248, 248);
   background-color: #edebe4;
 
@@ -49,8 +53,9 @@ body {
   // ------------
   // ------------
   .page {
-    display: flex;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-wrap: wrap;
+    overflow-x: hidden;
   }
 
   // ------------

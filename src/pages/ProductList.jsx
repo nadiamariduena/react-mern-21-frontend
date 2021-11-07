@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { mobile, mobileM, tablet } from "../responsive";
+
 //
 import Navbar from "../components/Navbar";
 import Announcement from "../components/Announcement";
@@ -8,6 +10,7 @@ import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 
 //
+
 const Container = styled.div`
   //
 
@@ -19,7 +22,7 @@ const Container = styled.div`
 //
 
 const Title = styled.h1`
-  margin: 20px;
+  margin: 70px 20px 20px 20px;
 `;
 
 const FilterContainer = styled.div`
@@ -29,13 +32,20 @@ const FilterContainer = styled.div`
 
 const Filter = styled.div`
   margin: 20px;
+  ${mobile({ width: "0px 20px", display: "flex", flexDirection: "column" })}
+  ${mobileM({ width: "0px 20px", display: "flex", flexDirection: "column" })}
+  ${tablet({ width: "0px 20px", display: "flex", flexDirection: "column" })}
 `;
 
 //
 const FilterText = styled.span`
-  font-size: 20px;
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
   font-weight: 600;
   margin-right: 20px;
+  ${mobile({ marginRight: "0" })}
+  ${mobileM({ marginRight: "0" })}
+  ${tablet({ marginRight: "0" })}
 `;
 
 const Select = styled.select`
@@ -43,6 +53,9 @@ const Select = styled.select`
   margin: 20px 2px;
   border: none;
   background-color: #ffffff6a;
+  ${mobile({ margin: "7px 0" })}
+  ${mobileM({ margin: "7px 0" })}
+  ${tablet({ margin: "7px 0" })}
 `;
 const Option = styled.option`
   margin: 5px;
@@ -54,6 +67,8 @@ const Option = styled.option`
 //
 //
 const ProductList = () => {
+
+
   return (
     <Container>
       <Navbar />

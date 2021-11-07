@@ -1,12 +1,12 @@
 import React from 'react'
 
-  
+import { mobile, mobileM, tablet } from "../responsive";
 import styled from "styled-components";
 
 // 
 // 
 const Container = styled.div`
- width: 100vw;
+  width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -23,13 +23,15 @@ const Container = styled.div`
   background-repeat: no-repeat;
 `;
 
-// 
+//
 const Wrapper = styled.div`
-   width: 30%;
+  width: 30%;
   padding: 30px 40px;
   background-color: white;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  
+  ${mobile({ width: "90%" })}
+  ${mobileM({ width: "75%" })}
+  ${tablet({ width: "75%" })}
 `;
 
 const Title = styled.h1`
@@ -47,12 +49,14 @@ const Input = styled.input`
   flex: 1;
   min-width: 40%;
   margin: 7px 0;
-  padding: 10px;
+  padding: 13px;
+  ${mobile({ padding: "12px" })}
+  ${mobileM({ padding: "12px" })}
+  ${tablet({ padding: "16px" })}
 `;
 
- 
 const Button = styled.button`
-margin: 16px 0 15px 0;
+  margin: 16px 0 15px 0;
   width: 40%;
   padding: 13px 20px;
   //background
@@ -79,7 +83,7 @@ const Link = styled.a`
   text-decoration: underline;
   cursor: pointer;
 `;
-// 
+//
 // 
 
 const Login = () => {

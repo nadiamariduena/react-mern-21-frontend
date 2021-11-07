@@ -1,4 +1,5 @@
 import React from "react";
+import { mobile, mobileM, tablet } from "../responsive";
 
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
@@ -16,6 +17,9 @@ const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 20px 20px 70px 20px;
   margin: 0px 0 70px 0;
+  ${mobile({
+    padding: "10px 10px 70px 10px",
+  })}
 `;
 
 const Title = styled.h1`
@@ -28,16 +32,41 @@ const Top = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  margin: 10px 0 30px 0;
+  margin: 3px 0 30px 0;
+  /*HELPER border: 1px solid red; */
+  //
+  ${mobile({
+    width: "auto",
+    padding: "20px 5px",
+  })}
+  ${mobileM({
+    width: "auto",
+    padding: "20px 5px",
+  })}
+    ${tablet({
+    width: "auto",
+    padding: "20px 20px",
+  })}
 `;
 
 const TopButton = styled.button`
-  width: 18%;
+  padding: 1.2em 1.6em;
+
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 8em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+
+  text-align: center;
+  transition: all 0.2s;
+  /* width: 18%;
   padding: 10px 25px;
   border-radius: 50px;
   cursor: pointer;
   font-weight: 500;
-  transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out; */
   //if props is equal to 'filled' then border none, in this case
   /* i want color in the border (props.color) just to test */
   border: 2px solid ${(props) => props.type === "filled" && props.color};
@@ -65,9 +94,35 @@ const TopButton = styled.button`
   }
 
   //
+  ${mobile({
+    display: "block",
+    margin: "0.2em 0.5em 0.2em 0.1em",
+    //has to do with the  AddContainer on top of this file, the bigger the container is, the more you can expand the button or add margin right
+    padding: "0.7em 0.5em",
+    fontSize: "0.9em",
+  })} //
+    ${mobileM({
+    display: "block",
+    margin: "0.2em 0.5em 0.2em 0.1em",
+    //has to do with the  AddContainer on top of this file, the bigger the container is, the more you can expand the button or add margin right
+    padding: "0.7em 0.5em",
+    fontSize: "0.9em",
+  })} //
+      ${tablet({
+    width: "35%",
+    display: "block",
+    margin: "0.2em 0.5em 0.2em 0.1em",
+    //has to do with the  AddContainer on top of this file, the bigger the container is, the more you can expand the button or add margin right
+    padding: "0.7em 0.5em",
+    fontSize: "0.9em",
+  })} //
 `;
 
-const TopTexts = styled.div``;
+const TopTexts = styled.div`
+  ${mobile({ display: "none" })}
+  ${mobileM({ display: "none" })}
+  ${tablet({ display: "none" })}
+`;
 const TopText = styled.span`
   text-decoration: underline;
   cursor: pointer;
@@ -75,17 +130,27 @@ const TopText = styled.span`
 `;
 //
 //
+//
+//
+//
+//
+//
+//
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
   background-color: #ddd8c74c;
   padding: 50px 0px;
+  ${mobile({ flexDirection: "column", width: "100%" })}
+  ${mobileM({ flexDirection: "column", width: "100%" })}
 `;
 //
 //
 //
 const Info = styled.div`
   flex: 2; //the size of the block
+  ${mobile({ flexDirection: "column", width: "100%", flex: "1" })}
+  ${mobileM({ flexDirection: "column", width: "100%", flex: "1" })}
 `;
 //
 //
@@ -99,6 +164,8 @@ const Info = styled.div`
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: "column" })}
+  ${mobileM({ flexDirection: "column" })}
 `;
 
 const ProductDetail = styled.div`
@@ -163,14 +230,20 @@ const ProductAmountContainer = styled.div`
   margin-bottom: 20px;
 `;
 
+// the + 2 -
 const ProductAmount = styled.div`
-  font-size: 24px;
+  font-size: 1.4em;
   margin: 5px;
+  //if you add too much to the top in mobile margin, the + and - wont follow, you will have to style the MUI icons
+  ${mobile({ margin: "0.2em 0.5em 0em 0.5em " })}
+  ${mobileM({ margin: "0.2em 0.5em 0em 0.5em " })}
 `;
-
+// 30$
 const ProductPrice = styled.div`
   font-size: 30px;
   font-weight: 200;
+  ${mobile({ margin: "0em 0.5em 0.8em 0.5em " })}
+  ${mobileM({ margin: "0em 0.5em 0.8em 0.5em " })}
 `;
 
 //
@@ -242,9 +315,7 @@ const Cart = () => {
     <Container>
       <Navbar />
       <Announcement />
-      {/*
-    
-    */}
+
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
@@ -268,13 +339,14 @@ const Cart = () => {
           <Info>
             <Product>
               <ProductDetail>
-                <ImgContainer>
-                  {popularProducts
-                    .filter((item) => item.title === "flower6")
-                    .map((item) => (
+                {" "}
+                {popularProducts
+                  .filter((item) => item.title === "flower6")
+                  .map((item) => (
+                    <ImgContainer key={item.id}>
                       <Image src={item.img} />
-                    ))}
-                </ImgContainer>{" "}
+                    </ImgContainer>
+                  ))}
                 <Details>
                   <ProductName>
                     <b>Product:</b> JESSIE THUNDER SHOES
@@ -310,13 +382,14 @@ const Cart = () => {
 
             <Product>
               <ProductDetail>
-                <ImgContainer>
-                  {popularProducts
-                    .filter((item) => item.title === "flower2")
-                    .map((item) => (
+                {" "}
+                {popularProducts
+                  .filter((item) => item.title === "flower2")
+                  .map((item) => (
+                    <ImgContainer key={item.id}>
                       <Image src={item.img} />
-                    ))}
-                </ImgContainer>{" "}
+                    </ImgContainer>
+                  ))}
                 <Details>
                   <ProductName>
                     <b>Product:</b> HAKURA T-SHIRT

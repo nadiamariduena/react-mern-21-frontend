@@ -409,7 +409,7 @@ import React from "react";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
 import styled from "styled-components";
-import { mobile } from "../responsive";
+import { mobile, mobileM, tablet } from "../responsive";
 // hook related to basket icon
 import useStyles from "./styles";
 //
@@ -419,16 +419,18 @@ const Container = styled.div`
   height: auto;
   background-color: #edebe4;
 
-  ${mobile({ height: "50px", backgroundColor: "red" })}
+  ${mobile({ height: "50px" })}
 `;
 
-//
+//mobileM
 const Wrapper = styled.div`
   padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   ${mobile({ padding: "10px 0px" })}
+  ${mobileM({ padding: "10px 0px" })}
+  ${tablet({ padding: "10px 0px" })}
 `;
 // ----------------------
 
@@ -446,6 +448,8 @@ const Language = styled.span`
   font-size: 14px;
   cursor: pointer;
   ${mobile({ display: "none" })}
+  ${mobileM({ display: "none" })}
+  ${tablet({ display: "none" })}
 `;
 //
 const SearchContainer = styled.div`
@@ -455,11 +459,14 @@ const SearchContainer = styled.div`
   margin-left: 25px;
   padding: 5px;
   ${mobile({ marginLeft: "5px" })}
+  ${mobileM({ marginLeft: "5px" })}
 `;
 const Input = styled.input`
   border: none;
 
   ${mobile({ width: "40px", fontSize: "0.8em", fontFamily: "Rajdhani-Light" })}
+  ${mobileM({ width: "50px", fontSize: "0.8em", fontFamily: "Rajdhani-Light" })}
+  ${tablet({ fontSize: "0.8em", fontFamily: "Rajdhani-Light" })}
 `;
 //
 // ----------------------
@@ -478,7 +485,13 @@ const Logo = styled.h1`
   font-weight: bold;
   font-family: "Syncopate-Bold";
   letter-spacing: 15px;
+  -webkit-letter-spacing: 5px;
+  -moz-letter-spacing: 5px;
+  -ms-letter-spacing: 5px;
+
+  /*  */
   ${mobile({ fontSize: "1.3em", letterSpacing: "5px" })}
+  ${mobileM({ fontSize: "1.3em", letterSpacing: "5px" })}
 `;
 //
 //
@@ -493,6 +506,7 @@ const Right = styled.div`
   justify-content: flex-end;
   // border: 1px solid #000;
   ${mobile({ flex: 2, justifyContent: "center" })}
+  ${mobileM({ flex: 2, justifyContent: "center" })}
 `;
 //
 //
@@ -501,6 +515,7 @@ const MenuItem = styled.div`
   cursor: pointer;
   margin: 0 20px 0 10px;
   ${mobile({ fontSize: "0.8em", marginLeft: "10px", marginRight: "0" })}
+  ${mobileM({ fontSize: "0.8em", marginLeft: "10px", marginRight: "0" })}
 `;
 
 //
@@ -565,7 +580,7 @@ export default Navbar;
 <hr>
 <br>
 
-## SLIDER (mobile)
+# SLIDER (mobile)
 
 - We are going to remove the slider from the mobile version
 
@@ -600,6 +615,218 @@ const Container = styled.div`
 `;
 ```
 
+<br>
+
+<br>
+
+# SWIMMING SLIDER AND PAGE
+
+🔴 I added this **page div** after i put all the routes together, i dont advice doing the following unless you save a copy of the original project
+
+<br>
+
+#### From the moment i started to handle the responsiveness of the project i knew the slider will be difficult (for me a Beginner), so first i wanted to take care of things i considered not so problematic
+
+<br>
+
+- So before i had my break i decided to analyze one more time this issue, (just thinking), so **What if i dont handle the swimming issue from the slider and not even the slider whole file** but from the very TOP.. the **App.js**.
+
+[<img src="/src/img/pensive_columbo.gif" />]()
+<br>
+
+- <u> **what if i add a 'div' to 'nest' all the components** </u> and add it a display:flex and flex-wrap:wrap, just to see how it behaves?
+
+<br>
+
+### Here is the result with the flex
+
+- It made it worse
+
+```scss
+body {
+  overflow-x: hidden;
+  background-color: #edebe4;
+
+  // ------------
+  // ------------
+  .page {
+    display: flex;
+    flex-wrap: wrap;
+    // overflow-x: hidden;
+  }
+
+  // ------------
+}
+```
+
+[<img src="/src/img/swimming_slider_the-issue1.gif" />]()
+
+<br>
+<br>
+
+### I added the settings inside my scss main.scss file, since it s my first time using styled.components for a whole project I wanted to keep scss for the end, just to see if i could easily solved issues like the slider one.
+
+<br>
+
+##### Here is the result with only overflow:hidden
+
+```scss
+body {
+  overflow-x: hidden;
+  background-color: #edebe4;
+
+  // ------------
+  // ------------
+  .page {
+    // display: flex;
+    // flex-wrap: wrap;
+    overflow-x: hidden;
+  }
+
+  // ------------
+}
+```
+
+<br>
+
+### And in the App.js
+
+- See how the page div is wrapping the whole thing
+
+```javascript
+  return (
+    <Router>
+      <ReactRouterScrollToTop /> // this solve the issue of being ///reedirected to the middle of the page when clicking to a page
+      <div className="page">
+        <Navbar />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/cart" exact component={Cart} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/register" exact component={Register} />
+          <Route path="/product" exact component={Product} />
+          <Route path="/productList" exact component={ProductList} />
+          <Route path="/*" component={Home} />
+        </Switch>
+
+        <Footer />
+      </div>
+    </Router>
+  );
+};
+```
+
+<br>
+<br>
+
+# 🍯
+
+- **It corrected the issue**, but i am still thinking about the possible issues, we will see.
+
+[<img src="/src/img/swimming_slider_corrected1.gif" />]()
+
+### the whole code
+
+```javascript
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+//pages
+import Home from "./pages/Home";
+//
+import Cart from "./pages/Cart";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Product from "./pages/Product";
+import ProductList from "./pages/ProductList";
+//
+//
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
+//
+
+const App = () => {
+  /*
+  
+  
+  
+  
+  */
+  return (
+    <Router>
+      <div className="page">
+        <Navbar />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/cart" exact component={Cart} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/register" exact component={Register} />
+          <Route path="/product" exact component={Product} />
+          <Route path="/productList" exact component={ProductList} />
+          <Route path="/*" component={Home} />
+        </Switch>
+
+        <Footer />
+      </div>
+    </Router>
+  );
+};
+
+export default App;
+```
+
+<br>
+<br>
+
+## 🍯 SCSS
+
+```scss
+@import "_fonts";
+//*********************************
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+  font-family: "Poppins-medium";
+
+  // CURSOR DEFAULT NONE
+  // cursor: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  // overflow-x: hidden;
+
+  background-color: #edebe4;
+
+  // rgb(248, 248, 248) original,matte white
+  //  background-color: #002200; //emeraude
+  // ------------
+  // ------------
+  // ------------
+  // ------------
+  .page {
+    // display: flex;
+    // flex-wrap: wrap;
+    overflow-x: hidden;
+  }
+
+  // ------------
+}
+```
+
+<br>
+<br>
+<hr>
 <br>
 <br>
 
@@ -937,8 +1164,1043 @@ import ProductList from "./pages/ProductList";
 //
 
 const App = () => {
-  return <Navbar />;
+  return (
+    <>
+      {/* <Announcement />
+      <Navbar />
+      <Slider />
+      <Categories />
+      <Products />
+      <Newsletter />
+      <Footer /> */}
+      <Cart />;
+    </>
+  );
 };
 
 export default App;
+```
+
+<br>
+<br>
+
+### The cart
+
+```javascript
+import React from "react";
+import { mobile, mobileM, tablet } from "../responsive";
+
+import Announcement from "../components/Announcement";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+
+//
+import { Add, Remove } from "@material-ui/icons";
+import styled from "styled-components";
+//
+// IMage
+import { popularProducts } from "../data";
+//
+const Container = styled.div``;
+//
+const Wrapper = styled.div`
+  padding: 20px 20px 70px 20px;
+  margin: 0px 0 70px 0;
+  ${mobile({
+    padding: "10px 10px 70px 10px",
+  })}
+`;
+
+const Title = styled.h1`
+  font-weight: 300;
+  text-align: center;
+`;
+
+const Top = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 3px 0 30px 0;
+  /*HELPER border: 1px solid red; */
+  //
+  ${mobile({
+    width: "auto",
+    padding: "20px 5px",
+  })}
+  ${mobileM({
+    width: "auto",
+    padding: "20px 5px",
+  })}
+    ${tablet({
+    width: "auto",
+    padding: "20px 20px",
+  })}
+`;
+
+const TopButton = styled.button`
+  padding: 1.2em 1.6em;
+
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 8em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+
+  text-align: center;
+  transition: all 0.2s;
+  /* width: 18%;
+  padding: 10px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 1s ease-in-out; */
+  //if props is equal to 'filled' then border none, in this case
+  /* i want color in the border (props.color) just to test */
+  border: 2px solid ${(props) => props.type === "filled" && props.color};
+  //
+  //
+  //if props is equal to filled ? if its, then it will be black,
+  /* if it s not filled it will be  transparent*/
+  background-color: ${(props) =>
+    props.type === "filled" ? "black" : "transparent"};
+  //
+  color: ${(props) => props.type === "filled" && "white"};
+  //
+  //
+  //
+  //
+
+  &:hover {
+    //if props is equal to 'filled' on HOVER ,props.color(check the props on filled button)
+    border: 2px solid ${(props) => props.type === "filled" && props.color};
+
+    color: #121212;
+    /* border: 1px solid #121212; */
+    background-color: ${(props) =>
+      props.type === "transparento" ? props.bg : "transparent"};
+  }
+
+  //
+  ${mobile({
+    display: "block",
+    margin: "0.2em 0.5em 0.2em 0.1em",
+    //has to do with the  AddContainer on top of this file, the bigger the container is, the more you can expand the button or add margin right
+    padding: "0.7em 0.5em",
+    fontSize: "0.9em",
+  })} //
+    ${mobileM({
+    display: "block",
+    margin: "0.2em 0.5em 0.2em 0.1em",
+    //has to do with the  AddContainer on top of this file, the bigger the container is, the more you can expand the button or add margin right
+    padding: "0.7em 0.5em",
+    fontSize: "0.9em",
+  })} //
+      ${tablet({
+    width: "35%",
+    display: "block",
+    margin: "0.2em 0.5em 0.2em 0.1em",
+    //has to do with the  AddContainer on top of this file, the bigger the container is, the more you can expand the button or add margin right
+    padding: "0.7em 0.5em",
+    fontSize: "0.9em",
+  })} //
+`;
+
+const TopTexts = styled.div`
+  ${mobile({ display: "none" })}
+  ${mobileM({ display: "none" })}
+  ${tablet({ display: "none" })}
+`;
+const TopText = styled.span`
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 0px 10px;
+`;
+//
+//
+//
+//
+//
+//
+//
+//
+const Bottom = styled.div`
+  display: flex;
+  justify-content: space-between;
+  background-color: #ddd8c74c;
+  padding: 50px 0px;
+  ${mobile({ flexDirection: "column", width: "100%" })}
+  ${mobileM({ flexDirection: "column", width: "100%" })}
+`;
+//
+//
+//
+const Info = styled.div`
+  flex: 2; //the size of the block
+  ${mobile({ flexDirection: "column", width: "100%", flex: "1" })}
+  ${mobileM({ flexDirection: "column", width: "100%", flex: "1" })}
+`;
+//
+//
+//
+//
+//
+//
+// PRODUCT / PRODUCT-DETAIL  /IMG
+//
+//
+const Product = styled.div`
+  display: flex;
+  justify-content: space-between;
+  ${mobile({ flexDirection: "column" })}
+  ${mobileM({ flexDirection: "column" })}
+`;
+
+const ProductDetail = styled.div`
+  flex: 2;
+  display: flex;
+`;
+
+const ImgContainer = styled.div`
+  width: 200px;
+`;
+//
+const Image = styled.img`
+  width: 100%;
+  object-fit: cover;
+`;
+//
+//
+//
+//
+//
+// DETAILS / PRDUCT NAME, ID, COLOR, SIZE
+//
+//
+const Details = styled.div`
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+const ProductName = styled.span``;
+const ProductId = styled.span``;
+const ProductColor = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color};
+`;
+const ProductSize = styled.span``;
+
+//
+//
+//
+//
+//
+//
+//
+// PRICE DETAIL / PRODUCT AMOUNT, PRICE
+//
+//
+
+const PriceDetail = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ProductAmountContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
+// the + 2 -
+const ProductAmount = styled.div`
+  font-size: 1.4em;
+  margin: 5px;
+  //if you add too much to the top in mobile margin, the + and - wont follow, you will have to style the MUI icons
+  ${mobile({ margin: "0.2em 0.5em 0em 0.5em " })}
+  ${mobileM({ margin: "0.2em 0.5em 0em 0.5em " })}
+`;
+// 30$
+const ProductPrice = styled.div`
+  font-size: 30px;
+  font-weight: 200;
+  ${mobile({ margin: "0em 0.5em 0.8em 0.5em " })}
+  ${mobileM({ margin: "0em 0.5em 0.8em 0.5em " })}
+`;
+
+//
+// the line that will separate the products
+const Hr = styled.hr`
+  background-color: #eee;
+  border: none;
+  height: 1px;
+`;
+//
+//
+//
+//
+//
+//
+// SUMMARY
+//
+const Summary = styled.div`
+  flex: 1; //the size of the block
+  border: 0.5px dotted lightgray;
+  border-radius: 10px;
+  padding: 20px;
+  min-height: 50vh;
+  text-align: right;
+`;
+
+const SummaryTitle = styled.h1`
+  font-weight: 200;
+`;
+
+const SummaryItem = styled.div`
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: ${(props) => props.type === "total" && "500"};
+  font-size: ${(props) => props.type === "total" && "24px"};
+`;
+
+const SummaryItemText = styled.span``;
+
+const SummaryItemPrice = styled.span``;
+
+const Button = styled.button`
+  margin: 10px 10px 0 0;
+  width: 50%;
+  padding: 10px;
+  color: #121212;
+  border: 2px solid #121212;
+  background-color: transparent;
+
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 1s ease-in-out;
+  &:hover {
+    border-radius: 50px;
+    border: 2px solid #121212;
+    color: rgb(248, 248, 248);
+    background-color: #121212;
+  }
+`;
+//
+//
+//
+//
+
+//
+const Cart = () => {
+  return (
+    <Container>
+      <Navbar />
+      <Announcement />
+
+      <Wrapper>
+        <Title>YOUR BAG</Title>
+        <Top>
+          <TopButton type="transparento" bg="#ffffff">
+            CONTINUE SHOPPING
+          </TopButton>
+          <TopTexts>
+            <TopText>Shopping Bag(2)</TopText>
+            <TopText>Your Wishlist (0)</TopText>
+          </TopTexts>
+          <TopButton type="filled" color="#121212">
+            CHECKOUT NOW
+          </TopButton>
+        </Top>
+        {/* 
+
+
+       */}
+
+        <Bottom>
+          <Info>
+            <Product>
+              <ProductDetail>
+                {" "}
+                {popularProducts
+                  .filter((item) => item.title === "flower6")
+                  .map((item) => (
+                    <ImgContainer key={item.id}>
+                      <Image src={item.img} />
+                    </ImgContainer>
+                  ))}
+                <Details>
+                  <ProductName>
+                    <b>Product:</b> JESSIE THUNDER SHOES
+                  </ProductName>
+                  <ProductId>
+                    <b>ID:</b> 93813718293
+                  </ProductId>
+                  <ProductColor color="black" />
+                  <ProductSize>
+                    <b>Size:</b> 37.5
+                  </ProductSize>
+                </Details>
+              </ProductDetail>
+              {/*  */}
+              <PriceDetail>
+                <ProductAmountContainer>
+                  <Add />
+                  <ProductAmount>2</ProductAmount>
+                  <Remove />
+                </ProductAmountContainer>
+                <ProductPrice>$ 30</ProductPrice>
+              </PriceDetail>
+            </Product>
+            {/*
+            
+            
+            */}
+            <Hr />
+            {/* 
+             
+             
+             */}
+
+            <Product>
+              <ProductDetail>
+                {" "}
+                {popularProducts
+                  .filter((item) => item.title === "flower2")
+                  .map((item) => (
+                    <ImgContainer key={item.id}>
+                      <Image src={item.img} />
+                    </ImgContainer>
+                  ))}
+                <Details>
+                  <ProductName>
+                    <b>Product:</b> HAKURA T-SHIRT
+                  </ProductName>
+                  <ProductId>
+                    <b>ID:</b> 93813718293
+                  </ProductId>
+                  <ProductColor color="gray" />
+                  <ProductSize>
+                    <b>Size:</b> M
+                  </ProductSize>
+                </Details>
+              </ProductDetail>
+              {/*  */}
+              <PriceDetail>
+                <ProductAmountContainer>
+                  <Add />
+                  <ProductAmount>1</ProductAmount>
+                  <Remove />
+                </ProductAmountContainer>
+                <ProductPrice>$ 20</ProductPrice>
+              </PriceDetail>
+            </Product>
+          </Info>
+          {/* 
+        
+        */}
+          <Summary>
+            <SummaryTitle>ORDER SUMMARY</SummaryTitle>
+            <SummaryItem>
+              <SummaryItemText>Subtotal</SummaryItemText>
+              <SummaryItemPrice>$ 80</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem>
+              <SummaryItemText>Estimated Shipping</SummaryItemText>
+              <SummaryItemPrice>$ 5.90</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem>
+              <SummaryItemText>Shipping Discount</SummaryItemText>
+              <SummaryItemPrice>$ -5.90</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem type="total">
+              <SummaryItemText>Total</SummaryItemText>
+              <SummaryItemPrice>$ 80</SummaryItemPrice>
+            </SummaryItem>
+            <Button>CHECKOUT NOW</Button>
+          </Summary>
+
+          {/*  */}
+        </Bottom>
+      </Wrapper>
+      {/* 
+    
+    */}
+      <Footer />
+    </Container>
+  );
+};
+
+export default Cart;
+```
+
+<br>
+<br>
+<br>
+
+# THE LOGIN
+
+```javascript
+import React from "react";
+
+import { mobile, mobileM, tablet } from "../responsive";
+import styled from "styled-components";
+
+//
+//
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*  */
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.2)
+    ), url("../img-store/soroush-golpoor-Z4N2c8ZNUQ0-unsplash.jpg") center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+`;
+
+//
+const Wrapper = styled.div`
+  width: 30%;
+  padding: 30px 40px;
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  ${mobile({ width: "90%" })}
+  ${mobileM({ width: "75%" })}
+  ${tablet({ width: "75%" })}
+`;
+
+const Title = styled.h1`
+  font-size: 1.7em;
+  font-weight: 300;
+  margin: 10px 0;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Input = styled.input`
+  flex: 1;
+  min-width: 40%;
+  margin: 7px 0;
+  padding: 13px;
+  ${mobile({ padding: "12px" })}
+  ${mobileM({ padding: "12px" })}
+  ${tablet({ padding: "16px" })}
+`;
+
+const Button = styled.button`
+  margin: 16px 0 15px 0;
+  width: 40%;
+  padding: 13px 20px;
+  //background
+  border: 1px solid #121212;
+  color: rgb(248, 248, 248);
+  background-color: #121212;
+
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 1s ease-in-out;
+  &:hover {
+    color: #121212;
+    border: 1px solid #121212;
+    background-color: transparent;
+  }
+`;
+//
+//
+
+const Link = styled.a`
+  margin: 3px 0px;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+`;
+//
+//
+
+const Login = () => {
+  return (
+    <Container>
+      <Wrapper>
+        <Title>SIGN IN</Title>
+        <Form>
+          <Input placeholder="username" />
+          <Input placeholder="password" />
+          <Button>LOGIN</Button>
+          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
+          <Link>CREATE A NEW ACCOUNT</Link>
+        </Form>
+
+        {/*  
+          
+          */}
+      </Wrapper>
+    </Container>
+  );
+};
+
+export default Login;
+```
+
+<br>
+<br>
+<br>
+
+## PAGES/PRODUCT.JSX
+
+- Careful with the **key={item.id}** can be item, items or whatever argument you added in the map
+
+<br>
+
+```javascript
+import React from "react";
+import { mobile, mobileM, tablet } from "../responsive";
+//
+//
+import Announcement from "../components/Announcement";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import Newsletter from "../components/Newsletter";
+//
+import { Add, Remove } from "@material-ui/icons";
+import styled from "styled-components";
+//
+// IMage
+import { popularProducts } from "../data";
+
+//
+
+//
+const Container = styled.div`
+  width: 100%;
+`;
+
+//
+const Wrapper = styled.div`
+  width: 100%;
+  padding: 50px;
+  display: flex;
+  //
+  ${mobile({ padding: "10px", flexDirection: "column" })}
+  ${mobileM({ padding: "10px", flexDirection: "column" })}
+  ${tablet({ padding: "10px", flexDirection: "column" })}
+`;
+//
+const ImgContainer = styled.div`
+  flex: 1;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 90vh;
+  object-fit: cover;
+  ${mobile({ height: "60vh" })}
+  ${mobileM({ height: "60vh" })}
+`;
+
+const InfoContainer = styled.div`
+  flex: 1; //is will make 50%
+  /* 
+  
+  InfoContainer and the ImgContainer are both flex 1 which means(50%),
+ 
+  
+  */
+  padding: 0px 50px;
+  ${mobile({ padding: "0 10px", width: "95%" })}
+  ${mobileM({ padding: "0 10px", width: "95%" })}
+`;
+
+const Title = styled.h1`
+  font-weight: 200;
+  ${mobile({ marginTop: "60px", fontSize: "1.8em", lineHeight: "1.2em" })}
+  ${mobileM({ marginTop: "60px", fontSize: "1.9em", lineHeight: "1.1em" })}
+  ${tablet({ marginTop: "60px", fontSize: "2.2em", lineHeight: "1.1em" })}
+`;
+
+const Desc = styled.p`
+  margin: 20px 0px;
+`;
+
+const Price = styled.span`
+  font-weight: 100;
+  font-size: 40px;
+`;
+
+//
+//
+//
+//
+//          **    option color  ***
+//
+const FilterContainer = styled.div`
+  width: 50%;
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Filter = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+//
+// the title 'color'
+const FilterTitle = styled.span`
+  font-size: 20px;
+  font-weight: 200;
+  margin: 0px 10px 0 0px;
+`;
+
+// the circles with the colors
+const FilterColor = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color};
+  margin: 0px 5px;
+  cursor: pointer;
+`;
+
+const FilterSize = styled.select`
+  margin-left: 10px;
+  padding: 5px;
+  border: none;
+  background-color: #ffffff6a;
+`;
+
+const FilterSizeOption = styled.option``;
+
+//
+//
+//            **    BUTTONS   ***
+//
+const AddContainer = styled.div`
+  width: 60%;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  //to check the width where you are border: 1px solid red;
+
+  //
+  ${mobile({
+    width: "auto",
+  })}
+  ${mobileM({
+    width: "85%", //this is connected to the button, the smaller the size, the less space you will have for the button, this will cause that the button become a circle(related to the size of the padding and margin )
+  })}
+    ${tablet({
+    width: "95%",
+  })}
+`;
+
+const AmountContainer = styled.div`
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+`;
+
+const Amount = styled.span`
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: 0.5px dotted black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 5px;
+`;
+
+const Button = styled.button`
+  display: inline-block;
+  /* desktop   padding: 0.80em 1.5em; */
+  /*oroginal padding: 0.35em 1.2em; */
+  //
+  //
+  padding: 1.2em 1.6em;
+  border: 0.1em solid #121212;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 8em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #121212;
+  text-align: center;
+  transition: all 0.2s;
+
+  /*  font-weight: 300;
+   color: #ffffff;
+   text-align: center;
+   transition: all 0.2s; */
+
+  //background
+
+  background-color: transparent;
+
+  /* border-radius: 50px; */
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 1s ease-in-out;
+  &:hover {
+    border: 1px solid #121212;
+    color: rgb(248, 248, 248);
+    background-color: #121212;
+  }
+  //
+  ${mobile({
+    display: "block",
+    margin: "0.2em 0.5em 0.2em 0.1em",
+    //has to do with the  AddContainer on top of this file, the bigger the container is, the more you can expand the button or add margin right
+    padding: "1em 0.8em",
+    fontSize: "0.9em",
+  })}
+  ${mobileM({
+    width: "55%",
+    display: "block",
+    margin: "0.2em 0.5em",
+    //has to do with the  AddContainer on top of this file, the bigger the container is, the more you can expand the button or add margin right
+    padding: "1em 0.8em",
+    fontSize: "0.9em",
+  })}
+    ${tablet({
+    width: "45%",
+    padding: "13px 0",
+    margin: "0 0 0 20px",
+  })}
+`;
+//
+//
+//
+//
+
+const Product = () => {
+  return (
+    <Container>
+      <Navbar />
+      <Announcement />
+      <Wrapper>
+        <ImgContainer>
+          {popularProducts
+            .filter((item) => item.title === "flower3")
+            .map((item) => (
+              <Image src={item.img} key={item.id} />
+            ))}
+        </ImgContainer>
+        <InfoContainer>
+          <Title>Crocodile Embossed bag</Title>
+          <Desc>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+            venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
+            iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget
+            tristique tortor pretium ut. Curabitur elit justo, consequat id
+            condimentum ac, volutpat ornare.
+          </Desc>
+          <Price>$ 128</Price>
+          {/* 
+
+*/}
+          <FilterContainer>
+            <Filter>
+              <FilterTitle>Color</FilterTitle>
+              <FilterColor color="white" />
+              <FilterColor color="#85390e " />
+              <FilterColor color="#BEBAB0" />
+            </Filter>
+            <Filter>
+              <FilterTitle>Size</FilterTitle>
+              <FilterSize>
+                <FilterSizeOption>XS</FilterSizeOption>
+                <FilterSizeOption>S</FilterSizeOption>
+                <FilterSizeOption>M</FilterSizeOption>
+                <FilterSizeOption>L</FilterSizeOption>
+                <FilterSizeOption>XL</FilterSizeOption>
+              </FilterSize>
+            </Filter>
+          </FilterContainer>
+
+          {/*  */}
+          <AddContainer>
+            <AmountContainer>
+              <Remove />
+              <Amount>1</Amount>
+              <Add />
+            </AmountContainer>
+            <Button>ADD TO CART</Button>
+          </AddContainer>
+          {/*  
+          
+          */}
+        </InfoContainer>
+      </Wrapper>
+
+      <Newsletter />
+      <Footer />
+    </Container>
+  );
+};
+
+export default Product;
+```
+
+<br>
+<br>
+<br>
+
+## PAGES / ProductList.jsx
+
+<br>
+
+```javascript
+import React from "react";
+import styled from "styled-components";
+import { mobile, mobileM, tablet } from "../responsive";
+
+//
+import Navbar from "../components/Navbar";
+import Announcement from "../components/Announcement";
+import Products from "../components/Products";
+import Newsletter from "../components/Newsletter";
+import Footer from "../components/Footer";
+
+//
+
+const Container = styled.div`
+  //
+
+  //
+`;
+
+//
+//
+//
+
+const Title = styled.h1`
+  margin: 70px 20px 20px 20px;
+`;
+
+const FilterContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Filter = styled.div`
+  margin: 20px;
+  ${mobile({ width: "0px 20px", display: "flex", flexDirection: "column" })}
+  ${mobileM({ width: "0px 20px", display: "flex", flexDirection: "column" })}
+  ${tablet({ width: "0px 20px", display: "flex", flexDirection: "column" })}
+`;
+
+//
+const FilterText = styled.span`
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin-right: 20px;
+  ${mobile({ marginRight: "0" })}
+  ${mobileM({ marginRight: "0" })}
+  ${tablet({ marginRight: "0" })}
+`;
+
+const Select = styled.select`
+  padding: 10px;
+  margin: 20px 2px;
+  border: none;
+  background-color: #ffffff6a;
+  ${mobile({ margin: "7px 0" })}
+  ${mobileM({ margin: "7px 0" })}
+  ${tablet({ margin: "7px 0" })}
+`;
+const Option = styled.option`
+  margin: 5px;
+  border: none;
+`;
+
+//
+//
+//
+//
+const ProductList = () => {
+  return (
+    <Container>
+      <Navbar />
+      <Announcement />
+
+      <Title>Dresses</Title>
+      <FilterContainer>
+        {/* 
+              
+              
+            Filter Products
+
+      
+      */}
+        <Filter>
+          <FilterText>Filter Products:</FilterText>
+          <Select>
+            <Option disabled selected>
+              Color
+            </Option>
+            <Option>White</Option>
+            <Option>Black</Option>
+            <Option>Red</Option>
+            <Option>Blue</Option>
+            <Option>Yellow</Option>
+            <Option>Green</Option>
+          </Select>
+          <Select>
+            <Option disabled selected>
+              Size
+            </Option>
+            <Option>XS</Option>
+            <Option>S</Option>
+            <Option>M</Option>
+            <Option>L</Option>
+            <Option>XL</Option>
+          </Select>
+        </Filter>
+        {/* 
+              
+              
+              Sort Products
+
+      
+      */}
+        <Filter>
+          <FilterText>Sort Products:</FilterText>
+          <Select>
+            <Option selected>Newest</Option>
+            <Option>Price (asc)</Option>
+            <Option>Price (desc)</Option>
+          </Select>
+        </Filter>
+      </FilterContainer>
+
+      <Products />
+      <Newsletter />
+      <Footer />
+    </Container>
+  );
+};
+
+export default ProductList;
 ```
