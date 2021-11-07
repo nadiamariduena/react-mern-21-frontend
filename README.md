@@ -115,6 +115,11 @@ npm install @material-ui/core @material-ui/icons   react-router-dom node-sass@4.
 
 - Here you can find my other attempt using: [commercejs | stripe and MUI](https://github.com/nadiamariduena/e-commerce-react-stripe)
 
+
+<br>
+
+<hr>
+<br>
 <br>
 
 # CREDITS:
@@ -123,7 +128,7 @@ Big thanks to **[Safak](https://www.youtube.com/c/LamaDev/about)** , for sharing
 
 <br>
 
-(I changed all the original images and design palette for the one you see on the image below)
+(**I changed all** the original images and design palette for the ones you see on the image below, I also tested different things that you don't have in the video tutorial, you can find them in my **Notes**)
 
 <br>
 
@@ -172,25 +177,29 @@ Big thanks to **[Safak](https://www.youtube.com/c/LamaDev/about)** , for sharing
 <nr>
 <br>
 
-#### [TIPS: ](./src/a_TIPS.md)
+#### [TIPS ](./src/a_TIPS.md)
 
-#### [COMMON ERRORS:](./src/a_ERRORS.md)
+#### [COMMON ERRORS](./src/a_ERRORS.md)
 
-#### [TO DO:](./src/a_TODO.md)
+#### [TO DO](./src/a_TODO.md)
 
-#### [TO REVIEW:](./src/a_TOREVIEW.md)
+#### [TO REVIEW](./src/a_TOREVIEW.md)
 
-#### [TO READ:](./src/a_TOREAD.md)
+#### [TO READ](./src/a_TOREAD.md)
 
 <br>
 <hr>
 <br>
+<br>
+<br>
 
-### I Created a parallel repository to work on the routes to have a better preview of the project.
+# I Created a parallel repository
+
+- To work on the routes, to have a better preview of the project.
 
 <br>
 
-- but this repository contains the original set up (without the routing)
+- This repository contains the original set up (without the routing)
 
 <br>
 <br>
@@ -221,7 +230,6 @@ Big thanks to **[Safak](https://www.youtube.com/c/LamaDev/about)** , for sharing
 
 - Trinh Minh
 
-
 <br>
 
-##### Images found in: [unsplash](https://unsplash.com/)
+##### Images found at: [unsplash](https://unsplash.com/)
