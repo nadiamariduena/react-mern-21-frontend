@@ -39,6 +39,7 @@ const App = () => {
        <Cart />
       <Login />
       <Product />
+      <ProductList />
       */}
       <ProductList />;
     </>

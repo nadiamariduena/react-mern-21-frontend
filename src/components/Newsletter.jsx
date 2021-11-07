@@ -22,8 +22,8 @@ const Title = styled.div`
   font-weight: 600;
   font-family: "Raleway-SemiBold", sans-serif;
   ${mobile({ fontSize: "2.7em" })}
-  ${mobileM({ fontSize: "2.7em" })}
-  ${tablet({ fontSize: "2.7em" })}
+  ${mobileM({ fontSize: "3.3em" })}
+  ${tablet({ fontSize: "4.7em" })}
 `;
 const Desc = styled.div`
   font-size: 1.5em;
@@ -31,7 +31,7 @@ const Desc = styled.div`
   margin-bottom: 20px;
   ${mobile({ textAlign: "center", fontSize: "1.1em", lineHeight: "1.4em" })}
   ${mobileM({ textAlign: "center", fontSize: "1.1em", lineHeight: "1.4em" })}
-  ${tablet({ textAlign: "center", fontSize: "1.1em", lineHeight: "1.4em" })}
+  ${tablet({ textAlign: "center", fontSize: "1.6em", lineHeight: "1.4em" })}
 `;
 //
 const InputContainer = styled.div`
