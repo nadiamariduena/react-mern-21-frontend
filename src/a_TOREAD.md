@@ -18,6 +18,14 @@ https://upmostly.com/tutorials/react-filter-filtering-arrays-in-react-with-examp
 <hr>
 <br>
 
+### [React Conditional Rendering | NESTED CONDITIONAL RENDERING IN REACT](https://www.robinwieruch.de/conditional-rendering-react)
+
+<br>
+<br>
+<br>
+<hr>
+<br>
+
 #### [Why use curly braces over parentheses?](https://stackoverflow.com/questions/24553578/why-use-curly-braces-over-parentheses)
 
 - In a lot of Scala examples I see people use curly braces in places I find outright strange, when the same statement could easily be written using parentheses.
@@ -26,13 +34,14 @@ https://upmostly.com/tutorials/react-filter-filtering-arrays-in-react-with-examp
 lst foreach (x => println(s"the value returned is: $x")) // parens
 lst foreach {x => println(s"you get the idea, $x")} // braces
 ```
+
 - I understand that you can use braces as an alternative to parentheses, simply because it allows you to write a statement on multiple lines:
 
 ```javascript
 val res = for {
   x <- coll1
   y <- coll2
-} yield (x, y) 
+} yield (x, y)
 ```
 
 - If the function you're passing is a single expression, you can use either and the result will be the same. However, if the function includes multiple expressions you have to use braces. For this reason I always prefer using braces, aside from the fact that I find it makes your intent clearer. (Note that we're talking single expression, not single line. For example:
@@ -41,6 +50,7 @@ val res = for {
 lst map (x => findInDatabase(x)
                .getOrElse(ERROR_VALUE))
 ```
+
 - would be fine (since findInDatabase(x).getOrElse(ERROR_VALUE) is a single expression even though it's split into multiple lines.
 
 <br>
