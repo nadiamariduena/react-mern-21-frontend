@@ -150,11 +150,8 @@ Big thanks to **[Safak](https://www.youtube.com/c/LamaDev/about)** , for sharing
 
 # I Modified the original Design
 
-- **I changed all** the original images and design palette for the ones you see on the image below.
-
-<br>
-
--  I also tested different things that you don't have in the video tutorial, you can find them in my **Notes**
+> **I changed all** the original images and design palette for the ones you see on the image below. <br>
+ **I also tested** different things that you don't have in the video tutorial, you can find them in my **Notes**
 
  
 <br>
