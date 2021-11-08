@@ -115,7 +115,6 @@ npm install @material-ui/core @material-ui/icons   react-router-dom node-sass@4.
 
 - Here you can find my other attempt using: [commercejs | stripe and MUI](https://github.com/nadiamariduena/e-commerce-react-stripe)
 
-
 <br>
 
 <hr>
@@ -126,29 +125,13 @@ npm install @material-ui/core @material-ui/icons   react-router-dom node-sass@4.
 
 Big thanks to **[Safak](https://www.youtube.com/c/LamaDev/about)** , for sharing this **Great tutorial** on how to set up an E-commerce store using: **Node.js | E-Commerce | MongoDB | Stripe & JWT.**
 
-<br>
-
-(**I changed all** the original images and design palette for the ones you see on the image below, I also tested different things that you don't have in the video tutorial, you can find them in my **Notes**)
-
-<br>
-
-[<img src="/src/img/end_.gif" />]()
-
-<br>
-
-#### [Official project repository](https://github.com/safak/youtube/tree/react-shop-ui)
-
-### The Part 1 / video tutorial: _The Frontend_
-
-##### [React E-Commerce App Design Tutorial | React Shopping Cart UI Design](https://www.youtube.com/watch?v=c1xTDSIXit8)
-
-<br>
 <hr>
 <br>
+<br>
 
-## INDEX
+# INDEX
 
-- I tried to comment all the steps I considered to be commented (just in case)
+#### I tried to comment all the steps I considered to be commented (just in case).
 
 <br>
 
@@ -165,7 +148,21 @@ Big thanks to **[Safak](https://www.youtube.com/c/LamaDev/about)** , for sharing
 <br>
 <br>
 
-### 📓 NOTES:
+# I Modified the original Design
+
+- **I changed all** the original images and design palette for the ones you see on the image below, I also tested different things that you don't have in the video tutorial, you can find them in my **Notes**
+
+<br>
+<br>
+<br>
+<br>
+
+[<img src="/src/img/end_.gif" />]()
+
+<br>
+<br>
+
+# 📓 NOTES:
 
 - **Notes to myself:** common errors, interesting findings, refreshing knowledge, to do list (bugs to solve) ...etc
 
@@ -189,29 +186,34 @@ Big thanks to **[Safak](https://www.youtube.com/c/LamaDev/about)** , for sharing
 
 <br>
 <hr>
-<br>
-<br>
-<br>
+ <br>
 
-# I Created a parallel repository
+## I Created a parallel repository
 
 - To work on the routes, to have a better preview of the project.
 
-<br>
-
-- This repository contains the original set up (without the routing)
-
-<br>
-<br>
+- This repository contains the original set up (without the routing), that will be used to continue with the part of the tutorial (**the backend**)
 
 [<img src="/src/img/swimming_slider_corrected1.gif" />]()
 
 <br>
 <br>
-<br>
 <hr>
 <br>
 <br>
+
+# CREDITS VIDEO
+
+#### [Official project repository](https://github.com/safak/youtube/tree/react-shop-ui)
+
+#### The Part 1 / video tutorial: _The Frontend_
+
+##### [React E-Commerce App Design Tutorial | React Shopping Cart UI Design](https://www.youtube.com/watch?v=c1xTDSIXit8)
+
+<br>
+<hr>
+<br>
+
 
 # CREDITS IMAGES
 
