@@ -109,21 +109,43 @@ npm install @material-ui/core @material-ui/icons   react-router-dom node-sass@4.
 <br>
 <br>
 
-> **NOTE:** I started this project out of curiosity, I wanted to see the differences between using this type of e-commerce setup (with **commercejs** and **stripe**) and a shop build with (**Mongodb, Express, React,Nodejs**).
+# _NOVE_ e-boutique
+
+<br>
+<br>
+
+[<img src="/src/img/end_.gif" />]()
+
+<br>
+
+> **I started this project out of curiosity**, I wanted to see the **advantages & disadvantages** in building an e-commerce app using React, **Commercejs and stripe** and an app build with (Mongodb, Express, React and Nodejs | **MERN**). <br> <br>
+
+<br>
+<br>
+
+<br>
+
+## THE MOTIVATION
+
+<br>
+
+- **The main motivator for this project was my curiosity** as well as my desire to expand my knowledge. Due to the disastrous effect **the pandemic had on the small businesses** I used to visit, I decided I wanted to find a way to create websites and e-commerce stores that any business owner could use to represent their wares online, be it small or big. <br><br>
+- Although it isn't fully functional yet, as there is a final error I have to correct to publish it on the web, this is the result of my work. <br><br>
+- **Aside from that I wasn't entirely satisfied with the design so I customized it** as you can see from the preview shown above.
 
 <br>
 
 - Here you can find my other attempt using: [commercejs | stripe and MUI](https://github.com/nadiamariduena/e-commerce-react-stripe)
 
 <br>
-
 <hr>
-<br>
 <br>
 
 # CREDITS:
 
 Big thanks to **[Safak](https://www.youtube.com/c/LamaDev/about)** , for sharing this **Great tutorial** on how to set up an E-commerce store using: **Node.js | E-Commerce | MongoDB | Stripe & JWT.**
+
+<br>
 
 <hr>
 <br>
@@ -145,23 +167,34 @@ Big thanks to **[Safak](https://www.youtube.com/c/LamaDev/about)** , for sharing
 8. [responsive](https://github.com/nadiamariduena/react-mern-21-frontend/tree/responsive)
 
 <br>
+<hr>
 <br>
+
+## PLAYING AROUND
+
+<br>
+
+- I Created a parallel repository to work on the routes, to have a better preview of the project and also to test the new things i ve been learning lately.
+
+<br>
+
+- This repository contains the original set up (without the routing), that will be used to continue with the part of the tutorial (**the backend**)
+
+<br>
+
+[<img src="/src/img/swimming_slider_corrected1.gif" />]()
+
+<br>
+<hr>
 <br>
 
 # I Modified the original Design
 
-> **I changed all** the original images and design palette for the ones you see on the image below. <br>
- **I also tested** different things that you don't have in the video tutorial, you can find them in my **Notes**
-
- 
-<br>
-<br>
-
-[<img src="/src/img/end_.gif" />]()
+> **I changed all** the original images and design palette for the ones you see on the image below. <br> > **I also tested** different things that you don't have in the video tutorial, you can find them in my **Notes**
 
 <br>
+<hr>
 <br>
-
 # 📓 NOTES:
 
 - **Notes to myself:** common errors, interesting findings, refreshing knowledge, to do list (bugs to solve) ...etc
@@ -188,21 +221,7 @@ Big thanks to **[Safak](https://www.youtube.com/c/LamaDev/about)** , for sharing
 <hr>
  <br>
 
-## I Created a parallel repository
-
-- To work on the routes, to have a better preview of the project.
-
-- This repository contains the original set up (without the routing), that will be used to continue with the part of the tutorial (**the backend**)
-
-[<img src="/src/img/swimming_slider_corrected1.gif" />]()
-
-<br>
-<br>
-<hr>
-<br>
-<br>
-
-# CREDITS VIDEO
+# CREDITS
 
 #### [Official project repository](https://github.com/safak/youtube/tree/react-shop-ui)
 
@@ -214,8 +233,7 @@ Big thanks to **[Safak](https://www.youtube.com/c/LamaDev/about)** , for sharing
 <hr>
 <br>
 
-
-# CREDITS IMAGES
+### CREDITS IMAGES
 
 <br>
 <br>
