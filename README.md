@@ -188,16 +188,18 @@ Big thanks to **[Safak](https://www.youtube.com/c/LamaDev/about)** , for sharing
 <hr>
 <br>
 
-# I Modified the original Design
+# Customizing the original Design
 
-> **I changed all** the original images and design palette for the ones you see on the image below. <br> > **I also tested** different things that you don't have in the video tutorial, you can find them in my **Notes**
+> **I changed all** the original images and design palette for the ones you see on the image below. <br>
+> **I also tested** different things that you don't have in the video tutorial, you can find them in my **Notes**
 
 <br>
 <hr>
 <br>
-# 📓 NOTES:
 
-- **Notes to myself:** common errors, interesting findings, refreshing knowledge, to do list (bugs to solve) ...etc
+## 📓 NOTES:
+
+- Common errors, interesting findings, refreshing knowledge, to do list (bugs to solve) ...etc
 
 <!-- #### You will not find the .env file with the respective credentials (related to commercejs and stripe) to this repository
 - Read more inside the  [security](./src/security.md)
@@ -207,15 +209,15 @@ Big thanks to **[Safak](https://www.youtube.com/c/LamaDev/about)** , for sharing
 <nr>
 <br>
 
-#### [TIPS ](./src/a_TIPS.md)
+##### [TIPS ](./src/a_TIPS.md)
 
-#### [COMMON ERRORS](./src/a_ERRORS.md)
+##### [COMMON ERRORS](./src/a_ERRORS.md)
 
-#### [TO DO](./src/a_TODO.md)
+##### [TO DO](./src/a_TODO.md)
 
-#### [TO REVIEW](./src/a_TOREVIEW.md)
+##### [TO REVIEW](./src/a_TOREVIEW.md)
 
-#### [TO READ](./src/a_TOREAD.md)
+##### [TO READ](./src/a_TOREAD.md)
 
 <br>
 <hr>
